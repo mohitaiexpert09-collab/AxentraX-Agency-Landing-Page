@@ -52,7 +52,7 @@
       --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    html { background: #06080F; }
+    html { background: #06080F; overflow-x: clip; }
     body { font-family: '"Plus Jakarta Sans"', sans-serif; -webkit-font-smoothing: antialiased; }
 
     .font-display { font-family: '"Bricolage Grotesque"', sans-serif; }
@@ -227,6 +227,32 @@
 
     .icon-chip { background: linear-gradient(135deg, rgba(59,110,246,0.18), rgba(226,79,184,0.12)); }
 
+    /* Mobile menu panel */
+    .mobile-menu {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: grid-template-rows 0.45s var(--ease-spring), opacity 0.35s var(--ease-spring), transform 0.45s var(--ease-spring), visibility 0.45s;
+    }
+    .mobile-menu > div { min-height: 0; }
+    .mobile-menu.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    /* Hamburger → X */
+    #menu-toggle.open .burger-line:nth-child(2) { transform: translateY(0) rotate(45deg); }
+    #menu-toggle.open .burger-line:nth-child(3) { opacity: 0; transform: scaleX(0.4); }
+    #menu-toggle.open .burger-line:nth-child(4) { transform: translateY(0) rotate(-45deg); }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .reveal { opacity: 1 !important; transform: none !important; }
@@ -263,7 +289,7 @@
     <div class="mx-auto max-w-7xl px-5 sm:px-8">
       <nav class="mt-3 flex items-center justify-between rounded-2xl border border-white/[0.07] bg-surface/60 backdrop-blur-xl pl-4 pr-3 py-2 transition-all duration-500" id="nav-bar">
         <a href="#top" class="flex items-center group" aria-label="axentraX home">
-          <img src="brand_assets/Logo-mark.png" alt="axentraX" class="h-12 sm:h-14 w-auto select-none transition-transform duration-500 group-hover:scale-[1.04]" draggable="false" />
+          <img src="brand_assets/Logo-mark.png" alt="axentraX" class="h-11 sm:h-14 w-auto select-none transition-transform duration-500 group-hover:scale-[1.04]" draggable="false" />
         </a>
 
         <div class="hidden md:flex items-center gap-8 text-sm text-muted">
@@ -273,17 +299,55 @@
           <a href="#contact" class="nav-link">Contact</a>
         </div>
 
-        <a href="#contact" class="btn-primary text-sm font-semibold text-white rounded-xl px-5 py-3">
-          Book a free call
-        </a>
+        <div class="flex items-center gap-2">
+          <a href="#contact" class="hidden md:inline-block btn-primary text-sm font-semibold text-white rounded-xl px-5 py-3">
+            Book a free call
+          </a>
+
+          <!-- mobile hamburger -->
+          <button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"
+                  class="md:hidden relative grid h-11 w-11 place-items-center rounded-xl border border-white/[0.1] bg-white/[0.03] text-ink transition-colors duration-300 hover:bg-white/[0.07] active:scale-95">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="burger-line absolute h-[1.5px] w-5 rounded-full bg-ink transition-all duration-300 -translate-y-[5px]"></span>
+            <span class="burger-line absolute h-[1.5px] w-5 rounded-full bg-ink transition-all duration-300"></span>
+            <span class="burger-line absolute h-[1.5px] w-5 rounded-full bg-ink transition-all duration-300 translate-y-[5px]"></span>
+          </button>
+        </div>
       </nav>
+
+      <!-- mobile menu panel -->
+      <div id="mobile-menu" class="md:hidden mobile-menu mt-2 overflow-hidden">
+        <div class="grad-border rounded-2xl border border-white/[0.08] bg-surface/85 backdrop-blur-xl p-2.5">
+          <nav class="flex flex-col">
+            <a href="#services" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-white/[0.05]">Services <span class="text-muted/50">→</span></a>
+            <a href="#process" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-white/[0.05]">Process <span class="text-muted/50">→</span></a>
+            <a href="#reviews" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-white/[0.05]">Results <span class="text-muted/50">→</span></a>
+            <a href="#contact" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-white/[0.05]">Contact <span class="text-muted/50">→</span></a>
+          </nav>
+          <div class="mt-2 border-t border-white/[0.07] pt-2.5 px-1.5 pb-1.5">
+            <a href="#contact" class="mobile-link btn-primary flex items-center justify-center text-sm font-semibold text-white rounded-xl px-6 py-3.5">
+              Book a free call →
+            </a>
+            <div class="mt-3 flex items-center justify-center gap-5 text-xs text-muted">
+              <a href="mailto:mohitaiexpert09@gmail.com" class="inline-flex items-center gap-1.5 hover:text-ink transition-colors">
+                <svg class="h-3.5 w-3.5 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg>
+                Email
+              </a>
+              <a href="tel:+917000331653" class="inline-flex items-center gap-1.5 hover:text-ink transition-colors">
+                <svg class="h-3.5 w-3.5 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+                Call us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
   <main id="top">
 
     <!-- ============ HERO ============ -->
-    <section class="relative pt-44 pb-28 sm:pt-52 sm:pb-36 overflow-hidden" id="hero">
+    <section class="relative pt-36 pb-24 sm:pt-52 sm:pb-36 overflow-hidden" id="hero">
       <!-- background atmosphere -->
       <div class="absolute inset-0 -z-10">
         <div class="absolute inset-0 dotgrid opacity-60"></div>
@@ -425,7 +489,7 @@
     </section>
 
     <!-- ============ SERVICES ============ -->
-    <section id="services" class="py-24 sm:py-32 relative">
+    <section id="services" class="py-24 sm:py-32 relative overflow-hidden">
       <div class="absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full blur-[150px] opacity-20 -z-10" style="background:radial-gradient(circle,rgba(124,92,252,0.5),transparent 70%)"></div>
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <div class="reveal max-w-2xl mx-auto text-center">
@@ -600,7 +664,7 @@
     </section>
 
     <!-- ============ REVIEWS ============ -->
-    <section id="reviews" class="py-24 sm:py-32 relative">
+    <section id="reviews" class="py-24 sm:py-32 relative overflow-hidden">
       <div class="absolute right-0 top-1/4 h-[420px] w-[420px] rounded-full blur-[150px] opacity-20 -z-10" style="background:radial-gradient(circle,rgba(226,79,184,0.5),transparent 70%)"></div>
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
         <div class="reveal max-w-2xl mx-auto text-center">
@@ -704,7 +768,7 @@
     </section>
 
     <!-- ============ CONSULTATION FORM ============ -->
-    <section id="contact" class="py-24 sm:py-32 relative">
+    <section id="contact" class="py-24 sm:py-32 relative overflow-hidden">
       <div class="absolute left-1/2 top-10 -translate-x-1/2 h-[420px] w-[760px] rounded-full blur-[150px] opacity-25 -z-10" style="background:radial-gradient(circle,rgba(124,92,252,0.55),transparent 70%)"></div>
       <div class="mx-auto max-w-6xl px-5 sm:px-8">
         <div class="grad-border overflow-hidden rounded-4xl border border-white/[0.08] bg-surface/50 grid lg:grid-cols-[0.95fr_1.05fr]">
@@ -910,6 +974,22 @@
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
     } else {
       document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+    }
+
+    // ---------- Mobile menu ----------
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (menuToggle && mobileMenu) {
+      const setMenu = (open) => {
+        menuToggle.classList.toggle('open', open);
+        mobileMenu.classList.toggle('open', open);
+        menuToggle.setAttribute('aria-expanded', String(open));
+        menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      };
+      menuToggle.addEventListener('click', () => setMenu(!mobileMenu.classList.contains('open')));
+      mobileMenu.querySelectorAll('.mobile-link').forEach((el) => el.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+      window.addEventListener('resize', () => { if (window.innerWidth >= 768) setMenu(false); });
     }
 
     // ---------- Header condense on scroll ----------
