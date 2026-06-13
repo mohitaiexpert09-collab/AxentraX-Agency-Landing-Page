@@ -1,0 +1,14 @@
+{
+  "name": "axentrax-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "axentraX AI Automation Agency landing page",
+  "scripts": {
+    "serve": "node serve.mjs",
+    "shot": "node screenshot.mjs http://localhost:3000"
+  },
+  "dependencies": {
+    "puppeteer": "^23.11.1"
+  }
+}

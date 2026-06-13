@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>axentraX — Automate Smarter. Grow Faster. With AI</title>
+  <meta name="description" content="axentraX is an AI automation agency that designs, builds, and deploys intelligent workflows and AI agents so your team can automate, accelerate, and scale." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233B6EF6'/%3E%3Cstop offset='0.5' stop-color='%237C5CFC'/%3E%3Cstop offset='1' stop-color='%23E24FB8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%23070A12'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='url(%23g)'%3EX%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#06080F',
+            surface: '#0E121C',
+            float: '#141A28',
+            ink: '#EDF0F6',
+            muted: '#8B93A7',
+            brand: {
+              blue: '#3B6EF6',
+              violet: '#7C5CFC',
+              magenta: '#E24FB8',
+              solid: '#6E7BF7',
+            },
+          },
+          fontFamily: {
+            display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
+            body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          boxShadow: {
+            glow: '0 24px 80px -24px rgba(110,123,247,0.45)',
+            card: '0 1px 0 rgba(255,255,255,0.04) inset, 0 30px 60px -30px rgba(0,0,0,0.7)',
+          },
+          borderRadius: {
+            '4xl': '2rem',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --grad: linear-gradient(100deg, #3B6EF6 0%, #7C5CFC 48%, #E24FB8 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html { background: #06080F; }
+    body { font-family: '"Plus Jakarta Sans"', sans-serif; -webkit-font-smoothing: antialiased; }
+
+    .font-display { font-family: '"Bricolage Grotesque"', sans-serif; }
+
+    ::selection { background: rgba(124, 92, 252, 0.4); color: #fff; }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: #06080F; }
+    ::-webkit-scrollbar-thumb { background: #1c2333; border-radius: 99px; border: 2px solid #06080F; }
+    ::-webkit-scrollbar-thumb:hover { background: #2a3450; }
+
+    .text-gradient {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Grain overlay */
+    .grain::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .dotgrid {
+      background-image: radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px);
+      background-size: 28px 28px;
+      -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, #000 30%, transparent 75%);
+      mask-image: radial-gradient(ellipse 75% 60% at 50% 35%, #000 30%, transparent 75%);
+    }
+
+    /* Gradient hairline border via mask */
+    .grad-border {
+      position: relative;
+      isolation: isolate;
+    }
+    .grad-border::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(124,92,252,0.55), rgba(226,79,184,0.25) 40%, rgba(255,255,255,0.04) 70%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.7;
+      transition: opacity 0.5s var(--ease-spring);
+    }
+    .grad-border:hover::before { opacity: 1; }
+
+    /* Card hover spotlight */
+    .spotlight {
+      transition: transform 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-spring), border-color 0.5s var(--ease-spring);
+    }
+    .spotlight:hover {
+      transform: translateY(-6px);
+      border-color: rgba(124,92,252,0.35);
+      box-shadow: 0 30px 70px -30px rgba(110,123,247,0.5);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      position: relative;
+      overflow: hidden;
+      background: var(--grad);
+      transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring);
+      box-shadow: 0 14px 40px -14px rgba(110,123,247,0.7);
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -120%;
+      width: 60%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.5), transparent);
+      transform: skewX(-18deg);
+      transition: left 0.7s var(--ease-spring);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 50px -14px rgba(110,123,247,0.85); }
+    .btn-primary:hover::after { left: 130%; }
+    .btn-primary:active { transform: translateY(0) scale(0.99); }
+
+    .btn-ghost { transition: transform 0.4s var(--ease-spring), background-color 0.4s var(--ease-spring), border-color 0.4s var(--ease-spring); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.22); transform: translateY(-2px); }
+    .btn-ghost:active { transform: translateY(0); }
+
+    a, button { outline: none; }
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #7C5CFC;
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    /* Form fields */
+    .form-input {
+      width: 100%;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 0.85rem;
+      padding: 0.7rem 0.95rem;
+      font-size: 0.875rem;
+      color: #EDF0F6;
+      transition: border-color 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-spring), background-color 0.35s var(--ease-spring);
+    }
+    .form-input::placeholder { color: rgba(139,147,167,0.6); }
+    .form-input:hover { border-color: rgba(255,255,255,0.18); }
+    .form-input:focus {
+      outline: none;
+      border-color: rgba(124,92,252,0.6);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 0 0 4px rgba(124,92,252,0.14);
+    }
+    .form-select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%238B93A7' stroke-width='1.8' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.4rem;
+      cursor: pointer;
+    }
+    .form-select option { background: #0E121C; color: #EDF0F6; }
+
+    /* Marquee */
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-track { animation: marquee 32s linear infinite; }
+    .marquee-mask {
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    }
+
+    /* Floating glow drift */
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(4%, -3%) scale(1.08); }
+    }
+    .drift { animation: drift 14s ease-in-out infinite; }
+    .drift-slow { animation: drift 20s ease-in-out infinite reverse; }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.9); opacity: 0.7; }
+      70% { transform: scale(1.6); opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .pulse-ring { animation: pulse-ring 2.6s ease-out infinite; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-spring), transform 0.9s var(--ease-spring); will-change: transform, opacity; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* Hero entrance stagger */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(26px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .rise { opacity: 0; animation: rise 1s var(--ease-spring) forwards; }
+
+    .nav-link { position: relative; transition: color 0.3s var(--ease-spring); }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; bottom: -4px; height: 1.5px; width: 0;
+      background: var(--grad); transition: width 0.4s var(--ease-spring);
+    }
+    .nav-link:hover { color: #EDF0F6; }
+    .nav-link:hover::after { width: 100%; }
+
+    .icon-chip { background: linear-gradient(135deg, rgba(59,110,246,0.18), rgba(226,79,184,0.12)); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .rise { opacity: 1 !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body class="bg-bg text-ink font-body antialiased overflow-x-hidden grain selection:bg-brand-violet/40">
+
+  <!-- ============ HEADER ============ -->
+  <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+    <!-- utility contact bar -->
+    <div id="topbar" class="border-b border-white/[0.06] bg-bg/70 backdrop-blur-md overflow-hidden transition-all duration-500">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 h-9 flex items-center gap-4 text-[11px] sm:text-xs text-muted/90">
+        <span class="hidden md:inline tracking-[0.18em] uppercase text-muted/60">Automate · Accelerate · Scale</span>
+        <div class="flex items-center gap-4 sm:gap-6 ml-auto">
+          <a href="mailto:mohitaiexpert09@gmail.com" class="inline-flex items-center gap-1.5 hover:text-ink transition-colors">
+            <svg class="h-3.5 w-3.5 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg>
+            <span class="hidden sm:inline">mohitaiexpert09@gmail.com</span><span class="sm:hidden">Email us</span>
+          </a>
+          <a href="tel:+917000331653" class="inline-flex items-center gap-1.5 hover:text-ink transition-colors">
+            <svg class="h-3.5 w-3.5 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+            +91 70003 31653
+          </a>
+          <a href="tel:+919839886348" class="hidden sm:inline-flex items-center gap-1.5 hover:text-ink transition-colors">
+            +91 98398 86348
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- main nav -->
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <nav class="mt-3 flex items-center justify-between rounded-2xl border border-white/[0.07] bg-surface/60 backdrop-blur-xl pl-4 pr-3 py-2 transition-all duration-500" id="nav-bar">
+        <a href="#top" class="flex items-center group" aria-label="axentraX home">
+          <img src="brand_assets/Logo-mark.png" alt="axentraX" class="h-12 sm:h-14 w-auto select-none transition-transform duration-500 group-hover:scale-[1.04]" draggable="false" />
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm text-muted">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#process" class="nav-link">Process</a>
+          <a href="#reviews" class="nav-link">Results</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <a href="#contact" class="btn-primary text-sm font-semibold text-white rounded-xl px-5 py-3">
+          Book a free call
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="relative pt-44 pb-28 sm:pt-52 sm:pb-36 overflow-hidden" id="hero">
+      <!-- background atmosphere -->
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute inset-0 dotgrid opacity-60"></div>
+        <div id="hero-glow" class="absolute left-1/2 top-[-10%] -translate-x-1/2 h-[640px] w-[900px] rounded-full blur-[120px] opacity-40 drift"
+             style="background: radial-gradient(circle at 50% 50%, rgba(124,92,252,0.55), rgba(59,110,246,0.25) 45%, transparent 70%)"></div>
+        <div class="absolute right-[-8%] top-[20%] h-[420px] w-[420px] rounded-full blur-[120px] opacity-30 drift-slow"
+             style="background: radial-gradient(circle, rgba(226,79,184,0.4), transparent 65%)"></div>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-bg to-transparent"></div>
+      </div>
+
+      <div class="mx-auto max-w-5xl px-5 sm:px-8 text-center">
+        <div class="rise inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs sm:text-sm text-muted tracking-[0.08em] uppercase" style="animation-delay:.05s">
+          <span class="relative flex h-2 w-2">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-brand-violet pulse-ring"></span>
+            <span class="relative inline-flex h-2 w-2 rounded-full" style="background:var(--grad)"></span>
+          </span>
+          Built for service businesses
+        </div>
+
+        <h1 class="rise font-display mt-7 text-[2.5rem] leading-[1.05] sm:text-5xl md:text-6xl lg:text-[4.3rem] font-extrabold tracking-[-0.03em] text-balance" style="animation-delay:.15s">
+          Scale your service business —<br class="hidden sm:block" />
+          <span class="text-gradient italic font-bold">without the busywork.</span>
+        </h1>
+
+        <p class="rise mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-[1.7] text-muted" style="animation-delay:.28s">
+          You didn't start your business to drown in repetitive tasks. We hand the busywork to custom AI agents and automation — so you grow faster, scale revenue, and win back hours every week. <span class="text-ink/90 font-medium">You focus on growth. We'll handle the grind.</span>
+        </p>
+
+        <div class="rise mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5" style="animation-delay:.4s">
+          <a href="#contact" class="btn-primary w-full sm:w-auto text-sm font-semibold text-white rounded-xl px-6 py-3.5">
+            Book a free call →
+          </a>
+          <a href="#services" class="btn-ghost w-full sm:w-auto text-sm font-semibold text-ink rounded-xl border border-white/12 px-6 py-3.5">
+            See how it works
+          </a>
+        </div>
+
+        <p class="rise mt-7 text-xs text-muted/80" style="animation-delay:.52s">
+          For owners who'd rather build their business than be buried by it • No-risk strategy call • Results in weeks
+        </p>
+      </div>
+
+      <!-- floating product mock -->
+      <div class="rise mx-auto mt-16 max-w-5xl px-5 sm:px-8" style="animation-delay:.62s">
+        <div class="grad-border rounded-4xl border border-white/[0.07] bg-surface/70 backdrop-blur-xl p-2 shadow-glow">
+          <div class="rounded-[1.6rem] border border-white/[0.05] bg-bg/80 overflow-hidden">
+            <div class="flex items-center gap-2 border-b border-white/[0.06] px-4 py-3">
+              <span class="h-3 w-3 rounded-full bg-white/15"></span>
+              <span class="h-3 w-3 rounded-full bg-white/15"></span>
+              <span class="h-3 w-3 rounded-full bg-white/15"></span>
+              <span class="ml-3 text-xs text-muted">your business • automation console</span>
+            </div>
+            <div class="grid sm:grid-cols-3 gap-3 p-4 sm:p-6">
+              <div class="rounded-2xl border border-white/[0.06] bg-float/60 p-4">
+                <p class="text-xs text-muted">Hours won back / week</p>
+                <p class="font-display text-3xl font-bold mt-1"><span class="count" data-to="148">0</span>h</p>
+                <div class="mt-3 h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-[82%]" style="background:var(--grad)"></div></div>
+              </div>
+              <div class="rounded-2xl border border-white/[0.06] bg-float/60 p-4">
+                <p class="text-xs text-muted">Tasks off your plate</p>
+                <p class="font-display text-3xl font-bold mt-1"><span class="count" data-to="36">0</span>k</p>
+                <div class="mt-3 h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-[64%]" style="background:var(--grad)"></div></div>
+              </div>
+              <div class="rounded-2xl border border-white/[0.06] bg-float/60 p-4">
+                <p class="text-xs text-muted">Faster customer replies</p>
+                <p class="font-display text-3xl font-bold mt-1">1.<span class="count" data-to="2">0</span>s</p>
+                <div class="mt-3 h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="h-full w-[90%]" style="background:var(--grad)"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ LOGO STRIP ============ -->
+    <section class="py-12 border-y border-white/[0.05]">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <p class="reveal text-center text-xs uppercase tracking-[0.25em] text-muted/70 mb-8">Powering automation across modern teams</p>
+        <div class="marquee-mask overflow-hidden">
+          <div class="marquee-track flex w-max items-center gap-16 opacity-60">
+            <!-- duplicated set for seamless loop -->
+            <span class="font-display text-2xl font-bold whitespace-nowrap">Nexora</span>
+            <span class="font-display text-2xl font-semibold whitespace-nowrap">Quantia</span>
+            <span class="font-display text-2xl font-bold whitespace-nowrap tracking-tight">VELOCITY</span>
+            <span class="font-display text-2xl font-semibold italic whitespace-nowrap">Lumio</span>
+            <span class="font-display text-2xl font-bold whitespace-nowrap">Stackbloom</span>
+            <span class="font-display text-2xl font-semibold whitespace-nowrap">Northwind</span>
+            <span class="font-display text-2xl font-bold whitespace-nowrap">Apexly</span>
+            <span class="font-display text-2xl font-bold whitespace-nowrap">Nexora</span>
+            <span class="font-display text-2xl font-semibold whitespace-nowrap">Quantia</span>
+            <span class="font-display text-2xl font-bold whitespace-nowrap tracking-tight">VELOCITY</span>
+            <span class="font-display text-2xl font-semibold italic whitespace-nowrap">Lumio</span>
+            <span class="font-display text-2xl font-bold whitespace-nowrap">Stackbloom</span>
+            <span class="font-display text-2xl font-semibold whitespace-nowrap">Northwind</span>
+            <span class="font-display text-2xl font-bold whitespace-nowrap">Apexly</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-violet mb-4">
+            <span class="h-px w-6 bg-brand-violet/60"></span> Why axentraX
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-[1.08]">
+            Built to make AI <span class="text-gradient">actually work</span> for your business
+          </h2>
+          <p class="mt-5 text-muted leading-[1.7]">Everything you need to automate operations, accelerate growth, and scale without adding headcount.</p>
+        </div>
+
+        <div class="mt-14 grid md:grid-cols-3 gap-5">
+          <!-- card -->
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/60 p-7" style="transition-delay:.0s">
+            <div class="icon-chip grid h-12 w-12 place-items-center rounded-2xl border border-white/10 mb-5">
+              <svg class="h-6 w-6 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h4l2 5 4-14 2 9h6"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Real-Time Intelligence</h3>
+            <p class="mt-2.5 text-sm text-muted leading-[1.7]">Live dashboards and AI insights that surface what matters the moment it happens — no more waiting on weekly reports.</p>
+          </div>
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/60 p-7" style="transition-delay:.08s">
+            <div class="icon-chip grid h-12 w-12 place-items-center rounded-2xl border border-white/10 mb-5">
+              <svg class="h-6 w-6 text-brand-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 19V9m6 10V5m6 14v-7"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Measurable Impact</h3>
+            <p class="mt-2.5 text-sm text-muted leading-[1.7]">Every automation ships with clear KPIs. We track hours saved, cost reduced, and revenue unlocked — transparently.</p>
+          </div>
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/60 p-7" style="transition-delay:.16s">
+            <div class="icon-chip grid h-12 w-12 place-items-center rounded-2xl border border-white/10 mb-5">
+              <svg class="h-6 w-6 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h6v6M5 19 19 5M5 11V5h6"/></svg>
+            </div>
+            <h3 class="font-display text-xl font-semibold">Seamless Integration</h3>
+            <p class="mt-2.5 text-sm text-muted leading-[1.7]">We plug AI into the tools you already use — CRM, email, Slack, sheets, your stack — without disrupting your workflow.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES ============ -->
+    <section id="services" class="py-24 sm:py-32 relative">
+      <div class="absolute left-1/2 top-0 -translate-x-1/2 h-[400px] w-[800px] rounded-full blur-[150px] opacity-20 -z-10" style="background:radial-gradient(circle,rgba(124,92,252,0.5),transparent 70%)"></div>
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl mx-auto text-center">
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-violet mb-4">
+            <span class="h-px w-6 bg-brand-violet/60"></span> Our Services <span class="h-px w-6 bg-brand-violet/60"></span>
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-[1.08]">
+            Smarter Services, <span class="text-gradient">Built with AI</span>
+          </h2>
+          <p class="mt-5 text-muted leading-[1.7]">Everything you need to automate operations, boost productivity, and scale.</p>
+        </div>
+
+        <div class="mt-16 space-y-5">
+          <!-- Row 1 -->
+          <div class="reveal grad-border grid lg:grid-cols-2 gap-8 items-center rounded-4xl border border-white/[0.07] bg-surface/50 p-7 sm:p-10">
+            <div>
+              <span class="inline-block text-xs font-semibold text-brand-violet bg-brand-violet/10 border border-brand-violet/20 rounded-full px-3 py-1">Workflow Automation</span>
+              <h3 class="font-display text-2xl sm:text-3xl font-bold mt-4 tracking-[-0.02em]">Automate your repetitive tasks</h3>
+              <p class="mt-3 text-muted leading-[1.7] text-sm sm:text-base">From data entry to follow-ups and reporting, we map your manual processes and replace them with reliable AI-driven workflows that run 24/7.</p>
+              <ul class="mt-5 space-y-2.5 text-sm">
+                <li class="flex items-center gap-3 text-muted"><span class="grid h-5 w-5 place-items-center rounded-full" style="background:var(--grad)"><svg class="h-3 w-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Trigger-based, multi-step pipelines</li>
+                <li class="flex items-center gap-3 text-muted"><span class="grid h-5 w-5 place-items-center rounded-full" style="background:var(--grad)"><svg class="h-3 w-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Human-in-the-loop approvals</li>
+                <li class="flex items-center gap-3 text-muted"><span class="grid h-5 w-5 place-items-center rounded-full" style="background:var(--grad)"><svg class="h-3 w-3 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Error handling & alerting built-in</li>
+              </ul>
+            </div>
+            <div class="rounded-3xl border border-white/[0.06] bg-bg/70 p-4">
+              <div class="space-y-3">
+                <div class="flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-float/60 p-3.5">
+                  <span class="grid h-9 w-9 place-items-center rounded-xl icon-chip border border-white/10"><svg class="h-4.5 w-4.5 text-brand-blue" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg></span>
+                  <div class="flex-1"><p class="text-sm font-medium">New lead email received</p><p class="text-xs text-muted">Trigger • Gmail</p></div>
+                  <span class="text-xs text-brand-magenta">●</span>
+                </div>
+                <div class="ml-5 h-5 w-px bg-gradient-to-b from-brand-violet/60 to-transparent"></div>
+                <div class="flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-float/60 p-3.5">
+                  <span class="grid h-9 w-9 place-items-center rounded-xl icon-chip border border-white/10"><svg class="h-4.5 w-4.5 text-brand-violet" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3"/></svg></span>
+                  <div class="flex-1"><p class="text-sm font-medium">AI qualifies & enriches</p><p class="text-xs text-muted">Action • axentraX Agent</p></div>
+                  <span class="text-xs text-muted">running…</span>
+                </div>
+                <div class="ml-5 h-5 w-px bg-gradient-to-b from-brand-violet/60 to-transparent"></div>
+                <div class="flex items-center gap-3 rounded-2xl border border-white/[0.06] bg-float/60 p-3.5">
+                  <span class="grid h-9 w-9 place-items-center rounded-xl icon-chip border border-white/10"><svg class="h-4.5 w-4.5 text-brand-magenta" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                  <div class="flex-1"><p class="text-sm font-medium">Booked to calendar + CRM</p><p class="text-xs text-muted">Output • 1.2s</p></div>
+                  <span class="text-xs text-emerald-400">done</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2 (two cards) -->
+          <div class="grid lg:grid-cols-2 gap-5">
+            <div class="reveal grad-border spotlight rounded-4xl border border-white/[0.07] bg-surface/50 p-7 sm:p-9">
+              <span class="inline-block text-xs font-semibold text-brand-blue bg-brand-blue/10 border border-brand-blue/20 rounded-full px-3 py-1">Custom AI Agents</span>
+              <h3 class="font-display text-2xl font-bold mt-4 tracking-[-0.02em]">AI agents that work like your best hire</h3>
+              <p class="mt-3 text-muted leading-[1.7] text-sm">Voice & chat agents — receptionists, SDRs, support — trained on your data, available around the clock, and consistent every single time.</p>
+              <div class="mt-6 rounded-2xl border border-white/[0.06] bg-bg/60 p-4 space-y-3">
+                <div class="flex justify-end"><span class="rounded-2xl rounded-br-sm bg-white/[0.06] px-3.5 py-2 text-sm max-w-[80%]">Hi, do you have availability this Friday?</span></div>
+                <div class="flex justify-start"><span class="rounded-2xl rounded-bl-sm px-3.5 py-2 text-sm text-white max-w-[80%]" style="background:var(--grad)">Absolutely! I can offer 11:00 AM or 2:30 PM Friday. Want me to lock one in? 🤝</span></div>
+              </div>
+            </div>
+            <div class="reveal grad-border spotlight rounded-4xl border border-white/[0.07] bg-surface/50 p-7 sm:p-9" style="transition-delay:.08s">
+              <span class="inline-block text-xs font-semibold text-brand-magenta bg-brand-magenta/10 border border-brand-magenta/20 rounded-full px-3 py-1">AI Strategy Consulting</span>
+              <h3 class="font-display text-2xl font-bold mt-4 tracking-[-0.02em]">A roadmap before a single line of code</h3>
+              <p class="mt-3 text-muted leading-[1.7] text-sm">We audit your operations, identify the highest-ROI automation opportunities, and hand you a prioritized plan — so every build pays for itself.</p>
+              <div class="mt-6 grid grid-cols-3 gap-3">
+                <div class="rounded-2xl border border-white/[0.06] bg-bg/60 p-3 text-center"><p class="font-display text-2xl font-bold text-gradient">01</p><p class="text-[11px] text-muted mt-1">Audit</p></div>
+                <div class="rounded-2xl border border-white/[0.06] bg-bg/60 p-3 text-center"><p class="font-display text-2xl font-bold text-gradient">02</p><p class="text-[11px] text-muted mt-1">Prioritize</p></div>
+                <div class="rounded-2xl border border-white/[0.06] bg-bg/60 p-3 text-center"><p class="font-display text-2xl font-bold text-gradient">03</p><p class="text-[11px] text-muted mt-1">Deploy</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES GRID ============ -->
+    <section id="features" class="py-24 sm:py-32">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl mx-auto text-center">
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-violet mb-4">
+            <span class="h-px w-6 bg-brand-violet/60"></span> Capabilities <span class="h-px w-6 bg-brand-violet/60"></span>
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-[1.08]">
+            All features in <span class="text-gradient italic">one place</span>
+          </h2>
+          <p class="mt-5 text-muted leading-[1.7]">A complete automation toolkit, tailored and deployed by our team.</p>
+        </div>
+
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- feature -->
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6">
+            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-white/10 mb-4"><svg class="h-5 w-5 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+            <h3 class="font-display text-lg font-semibold">Workflow Automation</h3>
+            <p class="mt-2 text-sm text-muted leading-[1.7]">Replace manual, repetitive ops with smart, self-running pipelines.</p>
+          </div>
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6" style="transition-delay:.06s">
+            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-white/10 mb-4"><svg class="h-5 w-5 text-brand-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6h13M9 11 4 7m5 4-5 4m13-9a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+            <h3 class="font-display text-lg font-semibold">Custom AI Solutions</h3>
+            <p class="mt-2 text-sm text-muted leading-[1.7]">Bespoke models and agents tuned to your data and use cases.</p>
+          </div>
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6" style="transition-delay:.12s">
+            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-white/10 mb-4"><svg class="h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 3A6.5 6.5 0 003 9.5c0 1.6.6 3 1.5 4.2L3 21l3-1.5A6.5 6.5 0 1014.5 3h-5z"/></svg></div>
+            <h3 class="font-display text-lg font-semibold">AI Assistant</h3>
+            <p class="mt-2 text-sm text-muted leading-[1.7]">Always-on chat & voice assistants that handle real conversations.</p>
+          </div>
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6" style="transition-delay:.0s">
+            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-white/10 mb-4"><svg class="h-5 w-5 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 01-6 6m6-6a6 6 0 00-6-6m6 6H4m6 6a6 6 0 006 6m-6-6v8m0-20v4"/></svg></div>
+            <h3 class="font-display text-lg font-semibold">Sales & Marketing</h3>
+            <p class="mt-2 text-sm text-muted leading-[1.7]">Automated outreach, lead scoring, and content at scale.</p>
+          </div>
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6" style="transition-delay:.06s">
+            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-white/10 mb-4"><svg class="h-5 w-5 text-brand-magenta" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 14l3-3 3 3 5-6"/></svg></div>
+            <h3 class="font-display text-lg font-semibold">Performance Tracking</h3>
+            <p class="mt-2 text-sm text-muted leading-[1.7]">Live KPIs on every automation — hours saved, cost, and ROI.</p>
+          </div>
+          <div class="reveal spotlight grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6" style="transition-delay:.12s">
+            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-white/10 mb-4"><svg class="h-5 w-5 text-brand-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7a2 2 0 012-2h12a2 2 0 012 2M4 7v10a2 2 0 002 2h12a2 2 0 002-2V7M4 7l8 6 8-6"/></svg></div>
+            <h3 class="font-display text-lg font-semibold">Seamless Integrations</h3>
+            <p class="mt-2 text-sm text-muted leading-[1.7]">Connects to 1,000+ tools — your stack, fully wired together.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section id="process" class="py-24 sm:py-32 relative">
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl mx-auto text-center">
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-violet mb-4">
+            <span class="h-px w-6 bg-brand-violet/60"></span> How we work <span class="h-px w-6 bg-brand-violet/60"></span>
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-[1.08]">
+            Our Simple & <span class="text-gradient italic">Smart Process</span>
+          </h2>
+          <p class="mt-5 text-muted leading-[1.7]">From first call to live automation in four focused steps.</p>
+        </div>
+
+        <div class="mt-16 relative">
+          <!-- connecting line -->
+          <div class="hidden lg:block absolute top-9 left-[12%] right-[12%] h-px bg-gradient-to-r from-transparent via-brand-violet/40 to-transparent"></div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="reveal text-center sm:text-left">
+              <div class="grad-border mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-white/[0.08] bg-surface relative z-10">
+                <span class="font-display text-2xl font-bold text-gradient">01</span>
+              </div>
+              <h3 class="font-display text-lg font-semibold mt-5">Discover</h3>
+              <p class="mt-2 text-sm text-muted leading-[1.7]">A free strategy call to map your processes and find the highest-impact wins.</p>
+            </div>
+            <div class="reveal text-center sm:text-left" style="transition-delay:.08s">
+              <div class="grad-border mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-white/[0.08] bg-surface relative z-10">
+                <span class="font-display text-2xl font-bold text-gradient">02</span>
+              </div>
+              <h3 class="font-display text-lg font-semibold mt-5">Design</h3>
+              <p class="mt-2 text-sm text-muted leading-[1.7]">We architect the workflows and agents, then align on scope and KPIs.</p>
+            </div>
+            <div class="reveal text-center sm:text-left" style="transition-delay:.16s">
+              <div class="grad-border mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-white/[0.08] bg-surface relative z-10">
+                <span class="font-display text-2xl font-bold text-gradient">03</span>
+              </div>
+              <h3 class="font-display text-lg font-semibold mt-5">Deploy</h3>
+              <p class="mt-2 text-sm text-muted leading-[1.7]">We build, test, and launch into your stack — with you in the loop throughout.</p>
+            </div>
+            <div class="reveal text-center sm:text-left" style="transition-delay:.24s">
+              <div class="grad-border mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-white/[0.08] bg-surface relative z-10">
+                <span class="font-display text-2xl font-bold text-gradient">04</span>
+              </div>
+              <h3 class="font-display text-lg font-semibold mt-5">Optimize</h3>
+              <p class="mt-2 text-sm text-muted leading-[1.7]">We monitor, refine, and scale — compounding your results over time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section id="reviews" class="py-24 sm:py-32 relative">
+      <div class="absolute right-0 top-1/4 h-[420px] w-[420px] rounded-full blur-[150px] opacity-20 -z-10" style="background:radial-gradient(circle,rgba(226,79,184,0.5),transparent 70%)"></div>
+      <div class="mx-auto max-w-7xl px-5 sm:px-8">
+        <div class="reveal max-w-2xl mx-auto text-center">
+          <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-violet mb-4">
+            <span class="h-px w-6 bg-brand-violet/60"></span> Success Stories <span class="h-px w-6 bg-brand-violet/60"></span>
+          </p>
+          <h2 class="font-display text-3xl sm:text-5xl font-bold tracking-[-0.03em] leading-[1.08]">
+            Success Stories to <span class="text-gradient italic">Inspire</span>
+          </h2>
+          <p class="mt-5 text-muted leading-[1.7]">Real outcomes from teams who put AI to work with axentraX.</p>
+        </div>
+
+        <!-- stats band -->
+        <div class="reveal mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6 text-center">
+            <p class="font-display text-4xl font-bold text-gradient"><span class="count" data-to="120">0</span>+</p>
+            <p class="text-xs text-muted mt-1.5">Automations shipped</p>
+          </div>
+          <div class="grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6 text-center">
+            <p class="font-display text-4xl font-bold text-gradient"><span class="count" data-to="98">0</span>%</p>
+            <p class="text-xs text-muted mt-1.5">Client satisfaction</p>
+          </div>
+          <div class="grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6 text-center">
+            <p class="font-display text-4xl font-bold text-gradient"><span class="count" data-to="40">0</span>k+</p>
+            <p class="text-xs text-muted mt-1.5">Hours saved</p>
+          </div>
+          <div class="grad-border rounded-3xl border border-white/[0.07] bg-surface/50 p-6 text-center">
+            <p class="font-display text-4xl font-bold text-gradient">24/7</p>
+            <p class="text-xs text-muted mt-1.5">Agents running</p>
+          </div>
+        </div>
+
+        <!-- testimonials — 3 uniform cards -->
+        <div class="mt-6 grid md:grid-cols-3 gap-5">
+
+          <!-- Real review (neelusa8) -->
+          <figure class="reveal grad-border spotlight rounded-3xl border border-white/[0.07] bg-surface/50 p-7 flex flex-col">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="grid h-11 w-11 place-items-center rounded-full text-white font-semibold text-sm" style="background:var(--grad)">N</span>
+                <div>
+                  <figcaption class="font-semibold leading-tight">neelusa8</figcaption>
+                  <p class="text-xs text-muted">🇺🇸 United States</p>
+                </div>
+              </div>
+              <span class="text-amber-400 text-sm tracking-tight">★★★★★</span>
+            </div>
+            <blockquote class="mt-5 text-sm leading-[1.7] text-ink/85 flex-1">
+              "Mohit did great work for my AI receptionist and always available to speak with me. He did excellent work for my project. I would recommend him for any future work."
+            </blockquote>
+            <div class="mt-6 pt-5 border-t border-white/[0.06] flex items-center gap-2 text-xs text-muted">
+              <svg class="h-3.5 w-3.5 text-brand-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              Verified client · AI Receptionist
+            </div>
+          </figure>
+
+          <!-- Bhargav — Indian restaurant email campaign -->
+          <figure class="reveal grad-border spotlight rounded-3xl border border-white/[0.07] bg-surface/50 p-7 flex flex-col" style="transition-delay:.08s">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="grid h-11 w-11 place-items-center rounded-full text-white font-semibold text-sm" style="background:var(--grad)">B</span>
+                <div>
+                  <figcaption class="font-semibold leading-tight">Bhargav</figcaption>
+                  <p class="text-xs text-muted">🇮🇳 India</p>
+                </div>
+              </div>
+              <span class="text-amber-400 text-sm tracking-tight">★★★★★</span>
+            </div>
+            <blockquote class="mt-5 text-sm leading-[1.7] text-ink/85 flex-1">
+              "axentraX built us a complete automated email campaign targeting Indian restaurants for special occasions — Valentine's, festivals and events. The sequences run on their own and the booking response has been fantastic. Genuinely happy with the work."
+            </blockquote>
+            <div class="mt-6 pt-5 border-t border-white/[0.06] flex items-center gap-2 text-xs text-muted">
+              <svg class="h-3.5 w-3.5 text-brand-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              Verified client · Email Campaigns
+            </div>
+          </figure>
+
+          <!-- Additional client -->
+          <figure class="reveal grad-border spotlight rounded-3xl border border-white/[0.07] bg-surface/50 p-7 flex flex-col" style="transition-delay:.16s">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="grid h-11 w-11 place-items-center rounded-full text-white font-semibold text-sm" style="background:var(--grad)">S</span>
+                <div>
+                  <figcaption class="font-semibold leading-tight">Sarah Reyes</figcaption>
+                  <p class="text-xs text-muted">🇺🇸 United States</p>
+                </div>
+              </div>
+              <span class="text-amber-400 text-sm tracking-tight">★★★★★</span>
+            </div>
+            <blockquote class="mt-5 text-sm leading-[1.7] text-ink/85 flex-1">
+              "They automated our entire lead-routing flow in under three weeks. We're saving 30+ hours a week and nothing slips through the cracks anymore. Responsive, sharp, and the results speak for themselves."
+            </blockquote>
+            <div class="mt-6 pt-5 border-t border-white/[0.06] flex items-center gap-2 text-xs text-muted">
+              <svg class="h-3.5 w-3.5 text-brand-violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              Verified client · Workflow Automation
+            </div>
+          </figure>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONSULTATION FORM ============ -->
+    <section id="contact" class="py-24 sm:py-32 relative">
+      <div class="absolute left-1/2 top-10 -translate-x-1/2 h-[420px] w-[760px] rounded-full blur-[150px] opacity-25 -z-10" style="background:radial-gradient(circle,rgba(124,92,252,0.55),transparent 70%)"></div>
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="grad-border overflow-hidden rounded-4xl border border-white/[0.08] bg-surface/50 grid lg:grid-cols-[0.95fr_1.05fr]">
+
+          <!-- Left: pitch -->
+          <div class="reveal relative p-8 sm:p-12 flex flex-col">
+            <div class="absolute inset-0 dotgrid opacity-20"></div>
+            <div class="relative">
+              <p class="inline-flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-brand-violet mb-5">
+                <span class="h-px w-6 bg-brand-violet/60"></span> Free Consultation
+              </p>
+              <h2 class="font-display text-3xl sm:text-[2.6rem] leading-[1.08] font-bold tracking-[-0.03em]">
+                Let's map your biggest <span class="text-gradient italic">automation wins</span>
+              </h2>
+              <p class="mt-5 text-muted leading-[1.7] max-w-md">Tell us a little about your business. We'll review it and come back with a tailored plan — no pitch, no pressure, no obligation.</p>
+
+              <ul class="mt-8 space-y-4">
+                <li class="flex items-start gap-3 text-sm">
+                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full" style="background:var(--grad)"><svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                  <span class="text-muted leading-[1.6]"><span class="text-ink font-medium">30-minute strategy call</span> with a senior automation specialist</span>
+                </li>
+                <li class="flex items-start gap-3 text-sm">
+                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full" style="background:var(--grad)"><svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                  <span class="text-muted leading-[1.6]"><span class="text-ink font-medium">A prioritised roadmap</span> of the highest-ROI opportunities</span>
+                </li>
+                <li class="flex items-start gap-3 text-sm">
+                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full" style="background:var(--grad)"><svg class="h-3.5 w-3.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                  <span class="text-muted leading-[1.6]"><span class="text-ink font-medium">Clear next steps</span> you can action with or without us</span>
+                </li>
+              </ul>
+
+              <div class="mt-auto pt-10 flex items-center gap-3 text-xs text-muted/80">
+                <span class="flex -space-x-2">
+                  <span class="grid h-7 w-7 place-items-center rounded-full text-[10px] font-semibold text-white ring-2 ring-surface" style="background:var(--grad)">N</span>
+                  <span class="grid h-7 w-7 place-items-center rounded-full text-[10px] font-semibold text-white ring-2 ring-surface" style="background:linear-gradient(135deg,#7C5CFC,#E24FB8)">B</span>
+                  <span class="grid h-7 w-7 place-items-center rounded-full text-[10px] font-semibold text-white ring-2 ring-surface" style="background:linear-gradient(135deg,#3B6EF6,#7C5CFC)">S</span>
+                </span>
+                Trusted by founders & operators · Avg. reply under 2 hours
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="reveal relative border-t lg:border-t-0 lg:border-l border-white/[0.07] bg-bg/40 p-8 sm:p-12" style="transition-delay:.08s">
+            <form id="consult-form" class="space-y-5" novalidate>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="field">
+                  <label for="f-name" class="block text-xs font-medium text-muted mb-2">Name</label>
+                  <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Your full name" class="form-input" />
+                </div>
+                <div class="field">
+                  <label for="f-email" class="block text-xs font-medium text-muted mb-2">Email</label>
+                  <input id="f-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" class="form-input" />
+                </div>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="field">
+                  <label for="f-phone" class="block text-xs font-medium text-muted mb-2">Phone</label>
+                  <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000" class="form-input" />
+                </div>
+                <div class="field">
+                  <label for="f-company" class="block text-xs font-medium text-muted mb-2">Company</label>
+                  <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="Company name" class="form-input" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="f-goal" class="block text-xs font-medium text-muted mb-2">What's your main goal?</label>
+                <select id="f-goal" name="goal" required class="form-input form-select">
+                  <option value="" disabled selected>Select a goal</option>
+                  <option>Lead generation &amp; outreach</option>
+                  <option>WhatsApp automation</option>
+                  <option>Email / marketing campaigns</option>
+                  <option>AI receptionist / customer support</option>
+                  <option>Workflow &amp; ops automation</option>
+                  <option>Custom AI agent</option>
+                  <option>Something else</option>
+                </select>
+              </div>
+
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div class="field">
+                  <label for="f-budget" class="block text-xs font-medium text-muted mb-2">Project budget</label>
+                  <select id="f-budget" name="budget" required class="form-input form-select">
+                    <option value="" disabled selected>Select budget</option>
+                    <option>Under $1,000</option>
+                    <option>$1,000 – $5,000</option>
+                    <option>$5,000 – $10,000</option>
+                    <option>$10,000+</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="f-revenue" class="block text-xs font-medium text-muted mb-2">Monthly revenue</label>
+                  <select id="f-revenue" name="revenue" class="form-input form-select">
+                    <option value="" disabled selected>Select range</option>
+                    <option>Pre-revenue</option>
+                    <option>Under $10k</option>
+                    <option>$10k – $50k</option>
+                    <option>$50k – $250k</option>
+                    <option>$250k+</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-primary w-full text-sm font-semibold text-white rounded-xl px-6 py-3.5 mt-1">
+                Book my free consultation →
+              </button>
+              <p class="text-[11px] text-center text-muted/70">By submitting you agree to be contacted about your enquiry. We never share your details.</p>
+
+              <!-- success state -->
+              <div id="form-success" class="hidden text-center rounded-2xl border border-emerald-400/20 bg-emerald-400/[0.06] p-6">
+                <div class="mx-auto grid h-12 w-12 place-items-center rounded-full" style="background:var(--grad)"><svg class="h-6 w-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <p class="mt-4 font-display text-lg font-semibold">Thanks — request received!</p>
+                <p class="mt-1.5 text-sm text-muted">We'll review your details and reply within 2 hours.</p>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-white/[0.06] pt-16 pb-10">
+    <div class="mx-auto max-w-7xl px-5 sm:px-8">
+      <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+        <div>
+          <a href="#top" class="inline-flex items-center" aria-label="axentraX home">
+            <img src="brand_assets/Logo-mark.png" alt="axentraX" class="h-20 w-auto select-none" draggable="false" />
+          </a>
+          <p class="mt-4 text-sm text-muted leading-[1.7] max-w-xs">AI automation agency helping teams automate, accelerate, and scale with intelligent workflows and custom AI agents.</p>
+          <p class="mt-5 font-display text-sm tracking-[0.2em] text-muted/80 uppercase">Automate. Accelerate. Scale.</p>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-4">Company</p>
+          <ul class="space-y-3 text-sm text-muted">
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#process" class="nav-link">Process</a></li>
+            <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-4">Solutions</p>
+          <ul class="space-y-3 text-sm text-muted">
+            <li><a href="#features" class="nav-link">Workflow Automation</a></li>
+            <li><a href="#features" class="nav-link">AI Agents</a></li>
+            <li><a href="#features" class="nav-link">Consulting</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-sm font-semibold mb-4">Get in touch</p>
+          <ul class="space-y-3 text-sm text-muted">
+            <li>
+              <a href="mailto:mohitaiexpert09@gmail.com" class="group inline-flex items-center gap-2.5 hover:text-ink transition-colors">
+                <svg class="h-4 w-4 shrink-0 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg>
+                <span class="break-all">mohitaiexpert09@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+917000331653" class="group inline-flex items-center gap-2.5 hover:text-ink transition-colors">
+                <svg class="h-4 w-4 shrink-0 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+                <span>+91 70003 31653</span>
+              </a>
+            </li>
+            <li>
+              <a href="tel:+919839886348" class="group inline-flex items-center gap-2.5 hover:text-ink transition-colors">
+                <svg class="h-4 w-4 shrink-0 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+                <span>+91 98398 86348</span>
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="group inline-flex items-center gap-2.5 hover:text-ink transition-colors">
+                <svg class="h-4 w-4 shrink-0 text-brand-violet" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M4 11h16M5 5h14a1 1 0 011 1v13a1 1 0 01-1 1H5a1 1 0 01-1-1V6a1 1 0 011-1z"/></svg>
+                <span>Book a call</span>
+              </a>
+            </li>
+          </ul>
+          <div class="mt-5 flex gap-3">
+            <a href="https://www.linkedin.com/in/mohit-jha-automation/" target="_blank" rel="noopener" aria-label="LinkedIn" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.03] text-muted hover:text-ink hover:border-brand-violet/50 hover:bg-white/[0.06] transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V10.5H5.84v7.84h2.5zM7.09 9.36a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9zm11.25 8.98v-4.3c0-2.3-1.23-3.37-2.87-3.37a2.48 2.48 0 00-2.24 1.23v-1.06h-2.5v7.5h2.5v-4.15c0-1.1.21-2.16 1.57-2.16 1.34 0 1.36 1.25 1.36 2.23v4.08h2.68z"/></svg></a>
+            <a href="https://www.instagram.com/mohit_leadly.ai/" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.03] text-muted hover:text-ink hover:border-brand-magenta/50 hover:bg-white/[0.06] transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07zm0 3.06a5.98 5.98 0 110 11.96 5.98 5.98 0 010-11.96zm0 1.8a4.18 4.18 0 100 8.36 4.18 4.18 0 000-8.36zm6.2-.95a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61590513666082" target="_blank" rel="noopener" aria-label="Facebook" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.03] text-muted hover:text-ink hover:border-brand-blue/50 hover:bg-white/[0.06] transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-12 pt-6 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted/70">
+        <p>© 2026 axentraX. All rights reserved.</p>
+        <p class="flex gap-5"><a href="#" class="hover:text-ink transition-colors">Privacy</a><a href="#" class="hover:text-ink transition-colors">Terms</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---------- Scroll reveal ----------
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduce) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+    }
+
+    // ---------- Header condense on scroll ----------
+    const navBar = document.getElementById('nav-bar');
+    const topbar = document.getElementById('topbar');
+    const onScroll = () => {
+      const scrolled = window.scrollY > 24;
+      navBar.classList.toggle('bg-surface/85', scrolled);
+      navBar.classList.toggle('shadow-glow', scrolled);
+      navBar.classList.toggle('bg-surface/60', !scrolled);
+      // collapse the contact bar once scrolling, for more focus
+      topbar.style.height = scrolled ? '0px' : '';
+      topbar.style.opacity = scrolled ? '0' : '';
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ---------- Count up ----------
+    const animateCount = (el) => {
+      const to = parseFloat(el.dataset.to);
+      const dur = 1400;
+      const start = performance.now();
+      const step = (now) => {
+        const p = Math.min((now - start) / dur, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        const val = to * eased;
+        el.textContent = to % 1 === 0 ? Math.round(val).toString() : val.toFixed(1);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if (!reduce) {
+      const co = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { animateCount(e.target); co.unobserve(e.target); } });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('.count').forEach((el) => co.observe(el));
+    }
+
+    // ---------- Hero pointer parallax ----------
+    const glow = document.getElementById('hero-glow');
+    const hero = document.getElementById('hero');
+    if (glow && hero && !reduce && window.matchMedia('(pointer:fine)').matches) {
+      hero.addEventListener('pointermove', (ev) => {
+        const r = hero.getBoundingClientRect();
+        const x = (ev.clientX - r.left) / r.width - 0.5;
+        const y = (ev.clientY - r.top) / r.height - 0.5;
+        glow.style.transform = `translate(calc(-50% + ${x * 40}px), ${y * 30}px)`;
+      });
+    }
+
+    // ---------- Consultation form ----------
+    const form = document.getElementById('consult-form');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        // (Wire this to your CRM / email endpoint, e.g. Formspree, in production)
+        const fields = form.querySelectorAll('.field, button[type="submit"], p');
+        fields.forEach((el) => { el.style.transition = 'opacity .4s ease'; el.style.opacity = '0'; });
+        setTimeout(() => {
+          fields.forEach((el) => (el.style.display = 'none'));
+          const ok = document.getElementById('form-success');
+          ok.classList.remove('hidden');
+          requestAnimationFrame(() => { ok.style.transition = 'opacity .5s ease, transform .5s ease'; ok.style.opacity = '1'; });
+        }, 400);
+      });
+    }
+  </script>
+</body>
+</html>
