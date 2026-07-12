@@ -494,12 +494,12 @@
           <h2 class="font-display text-3xl sm:text-[2.9rem] font-semibold tracking-[-0.02em] leading-[1.1] text-bg">
             Not a mockup. A real agent, on a <span class="accent text-peach-soft">real conversation.</span>
           </h2>
-          <p class="mt-5 text-bg/70 leading-[1.75] text-lg">Three unedited recordings — a WhatsApp agent qualifying and quoting live leads, a voice agent taking an actual phone call, and an outbound agent confirming COD orders to cut RTO losses. No scripts, no cuts. Just watch it work.</p>
+          <p class="mt-5 text-bg/70 leading-[1.75] text-lg">Four real builds — a WhatsApp agent qualifying and quoting live leads, a voice agent taking an actual phone call, an outbound agent confirming COD orders to cut RTO losses, and a lead-to-deal CRM for property sales. No scripts, no cuts. Just watch it work.</p>
         </div>
 
         <!-- tab switcher -->
         <div class="reveal mt-10 flex justify-center">
-          <div role="tablist" aria-label="Choose a demo" class="inline-flex gap-1 rounded-2xl border border-white/[0.12] bg-white/[0.05] p-1.5 backdrop-blur-sm">
+          <div role="tablist" aria-label="Choose a demo" class="inline-flex flex-wrap justify-center gap-1 max-w-full rounded-2xl border border-white/[0.12] bg-white/[0.05] p-1.5 backdrop-blur-sm">
             <button role="tab" id="tab-whatsapp" aria-controls="panel-whatsapp" aria-selected="true" data-tab="whatsapp"
                     class="demo-tab active-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-bg/70">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.51 3.78 1.4 5.37L2 22l4.83-1.5a9.9 9.9 0 0 0 5.2 1.46h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.34-.5.05-.97.24-3.27-.68-2.77-1.09-4.53-3.92-4.67-4.1-.13-.18-1.12-1.49-1.12-2.85 0-1.36.71-2.02.97-2.3.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.39-.06.6.46.24.55.81 1.91.88 2.05.07.14.12.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.6-.14.24.09 1.55.73 1.81.86.27.14.45.2.51.32.07.11.07.64-.17 1.32z"/></svg>
@@ -514,6 +514,11 @@
                     class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-bg/70">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5h11v8H3zM14 10.5h3.6l3.4 3.2v1.8H14zM7 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6zM17.5 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z"/></svg>
               COD RTO Recovery
+            </button>
+            <button role="tab" id="tab-crm" aria-controls="panel-crm" aria-selected="false" data-tab="crm"
+                    class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-bg/70">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20.5V9l6-4 6 4v11.5M15 20.5V11l6 4v5.5M2 20.5h20M7 12h1.5M7 15.5h1.5"/></svg>
+              Real Estate CRM
             </button>
           </div>
         </div>
@@ -641,6 +646,46 @@
             <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Cuts return-to-origin losses</span>
             <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Flags fake &amp; risky orders</span>
             <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Hindi · automated outbound calls</span>
+          </div>
+        </div>
+
+        <!-- Real Estate CRM panel -->
+        <div class="reveal mt-12 hidden" id="panel-crm" role="tabpanel" aria-labelledby="tab-crm" data-panel="crm">
+          <div class="group relative rounded-4xl border border-white/[0.1] bg-white/[0.04] p-2 sm:p-3 shadow-lift">
+            <div class="flex items-center gap-3 px-3 sm:px-4 py-2.5">
+              <span class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span></span>
+              <span class="inline-flex items-center gap-2 text-xs text-bg/70">
+                <svg class="h-3.5 w-3.5 text-peach-soft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20.5V9l6-4 6 4v11.5M15 20.5V11l6 4v5.5M2 20.5h20M7 12h1.5M7 15.5h1.5"/></svg>
+                Real Estate Sales CRM — Lead-to-Deal Dashboard
+              </span>
+              <span class="ml-auto hidden sm:inline-flex items-center gap-1.5 font-mono text-[11px] text-bg/60"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span> recorded walkthrough</span>
+            </div>
+            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-indigo-deep">
+              <video id="video-crm" class="block w-full" style="aspect-ratio:16/9" preload="none" playsinline controls poster="real-estate-crm-demo-poster.jpg">
+                <source src="real-estate-crm-demo.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <button type="button" data-target="video-crm" aria-label="Play real estate CRM demo video"
+                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-indigo-deep/70 via-indigo-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach/70 ring-inset">
+                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full text-ink shadow-peach transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95" style="background:var(--peach-grad)">
+                  <span class="absolute inset-0 rounded-full opacity-60 animate-ping" style="background:var(--peach-grad)"></span>
+                  <svg class="relative h-7 w-7 translate-x-[2px]" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.78-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg>
+                </span>
+                <span class="absolute bottom-5 left-5 right-5 flex items-center justify-between text-left">
+                  <span>
+                    <span class="block font-display text-base sm:text-lg font-semibold text-bg">Play the real estate CRM demo</span>
+                    <span class="block text-xs text-bg/70">A live lead-to-deal CRM for property sales — enquiry to booking in one place.</span>
+                  </span>
+                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-indigo-deep/50 px-3 py-1 font-mono text-xs text-bg/80 backdrop-blur-sm">4:15</span>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-xs">
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Captures leads from 99acres, Housing &amp; more</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Enquiry → site visit → booking pipeline</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Rescues cold leads automatically</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Real-time response &amp; revenue tracking</span>
           </div>
         </div>
       </div>
