@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>axentraX — AI that takes the busywork off your plate</title>
-  <meta name="description" content="axentraX builds AI agents and automations for service businesses — answering leads, booking jobs, chasing follow-ups around the clock, so the work keeps moving without you in the middle of it." />
+  <title>axentraX — The work keeps moving without you in the middle of it</title>
+  <meta name="description" content="Leads answered in seconds, follow-ups that never slip, busywork that runs itself. axentraX quietly takes the repetitive work off your plate — so your business stops running through you." />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23211B47'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-style='italic' font-weight='700' text-anchor='middle' fill='%23E89B73'%3EX%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23161C30'/%3E%3Ctext x='32' y='45' font-family='Arial,sans-serif' font-size='38' font-weight='700' text-anchor='middle' fill='%23E3541D'%3EX%3C/text%3E%3C/svg%3E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -18,30 +18,27 @@
       theme: {
         extend: {
           colors: {
-            bg: '#FAF5EF',          // porcelain canvas
-            cream: '#F3E9DD',       // warm panel
-            sand: '#ECDFCF',        // deeper warm
+            canvas: '#F2F1ED',        // warm paper white
             paper: '#FFFFFF',
-            ink: '#211B47',         // deep indigo — primary
-            indigo: '#2A2566',
-            'indigo-deep': '#141033',
-            muted: '#6E6788',
-            line: '#E7DAC9',
-            peach: '#E69A73',
-            'peach-soft': '#F4C6A8',
-            'peach-deep': '#CE7A52',
-            'peach-ink': '#B65F38',
+            ink: '#131419',           // near-black
+            navy: '#222A44',          // badge / accent navy
+            'navy-deep': '#161C30',   // dark bands
+            muted: '#63656E',
+            line: '#E3E1D9',
+            ember: '#E3541D',         // the one accent
+            'ember-deep': '#C24312',
+            'ember-soft': '#F9E3D7',
+            lilac: '#B9B6D9',
           },
           fontFamily: {
-            display: ['Fraunces', 'Georgia', 'serif'],
-            body: ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+            display: ['"Schibsted Grotesk"', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
           },
           boxShadow: {
-            soft: '0 1px 2px rgba(33,27,71,0.04), 0 10px 30px -14px rgba(33,27,71,0.16)',
-            lift: '0 2px 5px rgba(33,27,71,0.06), 0 26px 54px -22px rgba(33,27,71,0.26)',
-            peach: '0 12px 34px -12px rgba(206,122,82,0.5)',
-            inset: 'inset 0 1px 0 rgba(255,255,255,0.6)',
+            soft: '0 1px 2px rgba(22,28,48,0.04), 0 10px 30px -14px rgba(22,28,48,0.14)',
+            lift: '0 2px 5px rgba(22,28,48,0.05), 0 28px 56px -24px rgba(22,28,48,0.24)',
+            ember: '0 12px 32px -12px rgba(227,84,29,0.5)',
           },
           borderRadius: { '4xl': '2rem' },
         },
@@ -51,136 +48,175 @@
 
   <style>
     :root {
-      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-      --peach-grad: linear-gradient(135deg, #F4C6A8 0%, #E69A73 52%, #DA8458 100%);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    html { background: #FAF5EF; overflow-x: clip; }
-    body { font-family: '"Hanken Grotesk"', system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    .font-display { font-family: 'Fraunces', Georgia, serif; }
+    html { background: #F2F1ED; overflow-x: clip; }
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    .font-display { font-family: 'Schibsted Grotesk', system-ui, sans-serif; }
 
-    ::selection { background: rgba(230,154,115,0.35); color: #211B47; }
+    ::selection { background: rgba(227,84,29,0.22); color: #131419; }
 
     ::-webkit-scrollbar { width: 11px; }
-    ::-webkit-scrollbar-track { background: #F3E9DD; }
-    ::-webkit-scrollbar-thumb { background: #d8c4ad; border-radius: 99px; border: 3px solid #F3E9DD; }
-    ::-webkit-scrollbar-thumb:hover { background: #c9ad8f; }
+    ::-webkit-scrollbar-track { background: #ECEAE4; }
+    ::-webkit-scrollbar-thumb { background: #C9C7BF; border-radius: 99px; border: 3px solid #ECEAE4; }
+    ::-webkit-scrollbar-thumb:hover { background: #B4B2AA; }
 
-    /* Warm paper grain */
-    .grain::before {
-      content: '';
-      position: fixed; inset: 0; z-index: 1; pointer-events: none;
-      opacity: 0.035; mix-blend-mode: multiply;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    .eyebrow { font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+
+    /* ---------- hero arc ---------- */
+    .arc-wrap { position: absolute; top: -26%; right: -16%; width: min(66vw, 1060px); aspect-ratio: 1; pointer-events: none; }
+    .arc-ring {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        rgba(34,42,68,0) 130deg,
+        rgba(206,204,220,0.55) 165deg,
+        rgba(238,237,242,1) 200deg,
+        rgba(228,226,235,0.98) 245deg,
+        rgba(196,194,212,0.55) 285deg,
+        rgba(34,42,68,0) 315deg);
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 142px), #000 calc(100% - 140px));
+              mask: radial-gradient(farthest-side, transparent calc(100% - 142px), #000 calc(100% - 140px));
+    }
+    .arc-ring-edge {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: conic-gradient(from 0deg,
+        rgba(34,42,68,0) 140deg,
+        rgba(34,42,68,0.07) 210deg,
+        rgba(34,42,68,0.09) 260deg,
+        rgba(34,42,68,0) 310deg);
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 145px), #000 calc(100% - 143px), #000 calc(100% - 139px), transparent calc(100% - 137px));
+              mask: radial-gradient(farthest-side, transparent calc(100% - 145px), #000 calc(100% - 143px), #000 calc(100% - 139px), transparent calc(100% - 137px));
+    }
+    .orbit { position: absolute; inset: 0; animation: orbit 30s linear infinite; will-change: transform; }
+    .orbit-dot {
+      position: absolute; top: 64px; left: 50%; margin-left: -7px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: #E3541D; box-shadow: 0 0 0 6px rgba(227,84,29,0.15), 0 0 24px rgba(227,84,29,0.55);
+      animation: ringfade 30s linear infinite; animation-delay: -17.5s;
+    }
+    @keyframes orbit { to { transform: rotate(360deg); } }
+    @keyframes orbit-rev { to { transform: rotate(-360deg); } }
+
+    /* the whole badge carousel slowly circles the ring; each badge counter-rotates
+       to stay upright and fades out where the band fades */
+    .orbit-carousel { position: absolute; inset: 0; animation: orbit 60s linear infinite; will-change: transform; }
+    .badge-slot { position: absolute; opacity: 0; animation: ringfade 60s linear infinite; }
+    @keyframes ringfade {
+      0% { opacity: 0; }
+      8% { opacity: 1; }
+      36% { opacity: 1; }
+      44% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .arc-badge {
+      display: grid; place-items: center; border-radius: 50%;
+      background: #222A44; color: #fff;
+      box-shadow: 0 18px 40px -14px rgba(22,28,48,0.55), inset 0 1px 0 rgba(255,255,255,0.14);
+      animation: orbit-rev 60s linear infinite;
+      will-change: transform;
+    }
+    .arc-badge::before {
+      content: ''; position: absolute; inset: 18% -55% -30% -20%; z-index: -1; border-radius: 50%;
+      background: rgba(34,42,68,0.35); filter: blur(26px);
     }
 
-    .dotgrid {
-      background-image: radial-gradient(rgba(33,27,71,0.10) 1px, transparent 1px);
-      background-size: 26px 26px;
-      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
-      mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+    /* ---------- buttons ---------- */
+    .btn-ember {
+      position: relative; overflow: hidden; background: #E3541D; color: #fff;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 12px 28px -12px rgba(227,84,29,0.65);
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background-color 0.35s var(--ease-out);
     }
-    .dotgrid-light {
-      background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
-      background-size: 26px 26px;
-    }
-
-    /* Emphasis: warm serif italic + hand-drawn underline */
-    .accent { color: #B65F38; font-style: italic; font-weight: 500; position: relative; white-space: nowrap; }
-    .underline-draw { position: relative; display: inline-block; }
-    .underline-draw svg { position: absolute; left: -2%; bottom: -0.32em; width: 104%; height: 0.5em; overflow: visible; pointer-events: none; }
-    .underline-draw svg path {
-      fill: none; stroke: #E69A73; stroke-width: 5; stroke-linecap: round;
-      stroke-dasharray: 480; stroke-dashoffset: 480;
-      animation: draw 1.1s var(--ease-spring) 0.7s forwards;
-    }
-    @keyframes draw { to { stroke-dashoffset: 0; } }
-
-    /* Buttons */
-    .btn-peach {
-      position: relative; overflow: hidden;
-      background: var(--peach-grad); color: #2A1B10;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 12px 30px -12px rgba(206,122,82,0.6);
-      transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring);
-    }
-    .btn-peach::after {
-      content: ''; position: absolute; top: 0; left: -120%; width: 55%; height: 100%;
-      background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);
-      transform: skewX(-18deg); transition: left 0.75s var(--ease-spring);
-    }
-    .btn-peach:hover { transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,255,255,0.4) inset, 0 20px 44px -12px rgba(206,122,82,0.72); }
-    .btn-peach:hover::after { left: 140%; }
-    .btn-peach:active { transform: translateY(0) scale(0.99); }
+    .btn-ember:hover { background: #C24312; transform: translateY(-2px); box-shadow: 0 1px 0 rgba(255,255,255,0.25) inset, 0 18px 40px -12px rgba(227,84,29,0.75); }
+    .btn-ember:active { transform: translateY(0) scale(0.99); }
 
     .btn-ink {
-      position: relative; overflow: hidden; background: #211B47; color: #FBF4EC;
-      box-shadow: 0 12px 30px -14px rgba(33,27,71,0.7);
-      transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring), background-color 0.4s var(--ease-spring);
+      background: #131419; color: #F2F1ED;
+      box-shadow: 0 12px 28px -14px rgba(19,20,25,0.6);
+      transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), background-color 0.35s var(--ease-out);
     }
-    .btn-ink:hover { transform: translateY(-2px); background: #2A2257; box-shadow: 0 20px 44px -14px rgba(33,27,71,0.8); }
+    .btn-ink:hover { background: #23242c; transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(19,20,25,0.7); }
     .btn-ink:active { transform: translateY(0) scale(0.99); }
 
-    .btn-outline {
-      border: 1px solid rgba(33,27,71,0.18); color: #211B47; background: rgba(255,255,255,0.4);
-      transition: transform 0.4s var(--ease-spring), background-color 0.4s var(--ease-spring), border-color 0.4s var(--ease-spring);
+    .btn-ghost {
+      border: 1px solid rgba(19,20,25,0.18); color: #131419; background: rgba(255,255,255,0.55);
+      transition: transform 0.35s var(--ease-out), background-color 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
     }
-    .btn-outline:hover { background: #fff; border-color: rgba(33,27,71,0.32); transform: translateY(-2px); }
-    .btn-outline:active { transform: translateY(0); }
+    .btn-ghost:hover { background: #fff; border-color: rgba(19,20,25,0.34); transform: translateY(-2px); }
+    .btn-ghost:active { transform: translateY(0); }
 
-    a, button { outline: none; }
+    a, button, summary { outline: none; }
     a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
-      outline: 2px solid #CE7A52; outline-offset: 3px; border-radius: 8px;
+      outline: 2px solid #E3541D; outline-offset: 3px; border-radius: 8px;
     }
 
-    /* Cards */
-    .card { transition: transform 0.5s var(--ease-spring), box-shadow 0.5s var(--ease-spring), border-color 0.5s var(--ease-spring); }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 4px 8px rgba(33,27,71,0.05), 0 32px 60px -26px rgba(206,122,82,0.4); border-color: rgba(206,122,82,0.4); }
+    /* ---------- cards ---------- */
+    .card { transition: transform 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out), border-color 0.45s var(--ease-out); }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 4px 8px rgba(22,28,48,0.05), 0 30px 56px -26px rgba(22,28,48,0.28); border-color: rgba(34,42,68,0.22); }
 
-    /* Form fields */
+    /* ---------- form ---------- */
     .form-input {
-      width: 100%; background: #fff; border: 1px solid #E2D4C2; border-radius: 0.8rem;
-      padding: 0.72rem 0.95rem; font-size: 0.9rem; color: #211B47;
-      transition: border-color 0.3s var(--ease-spring), box-shadow 0.3s var(--ease-spring);
+      width: 100%; background: #fff; border: 1px solid #DCDAD2; border-radius: 0.8rem;
+      padding: 0.72rem 0.95rem; font-size: 0.9rem; color: #131419;
+      transition: border-color 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
     }
-    .form-input::placeholder { color: #A99FB4; }
-    .form-input:hover { border-color: #D2BFA8; }
-    .form-input:focus { outline: none; border-color: #E69A73; box-shadow: 0 0 0 4px rgba(230,154,115,0.16); }
+    .form-input::placeholder { color: #A5A4AB; }
+    .form-input:hover { border-color: #C2C0B8; }
+    .form-input:focus { outline: none; border-color: #E3541D; box-shadow: 0 0 0 4px rgba(227,84,29,0.13); }
     .form-select {
       appearance: none; -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%236E6788' stroke-width='1.8' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2363656E' stroke-width='1.8' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
       background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.4rem; cursor: pointer;
     }
 
-    /* Marquee */
+    /* ---------- calculator sliders ---------- */
+    input[type='range'].slider {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 6px; border-radius: 99px;
+      background: linear-gradient(to right, #E3541D 0%, #E3541D 50%, #E7E5DD 50%, #E7E5DD 100%);
+      outline: none; cursor: pointer;
+    }
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      height: 22px; width: 22px; border-radius: 50%;
+      background: #fff; border: 3px solid #E3541D;
+      box-shadow: 0 2px 10px rgba(227,84,29,0.4);
+      transition: transform 0.25s var(--ease-out);
+    }
+    .slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+    .slider::-webkit-slider-thumb:active { transform: scale(1.05); }
+    .slider::-moz-range-thumb {
+      height: 22px; width: 22px; border-radius: 50%;
+      background: #fff; border: 3px solid #E3541D;
+      box-shadow: 0 2px 10px rgba(227,84,29,0.4);
+      transition: transform 0.25s var(--ease-out);
+    }
+    .slider::-moz-range-thumb:hover { transform: scale(1.15); }
+    .slider:focus-visible { outline: 2px solid #E3541D; outline-offset: 5px; }
+
+    /* ---------- marquee ---------- */
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .marquee-track { animation: marquee 38s linear infinite; }
+    .marquee-track { animation: marquee 40s linear infinite; will-change: transform; }
     .marquee-mask { -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
 
-    @keyframes drift { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(3%,-3%) scale(1.07); } }
-    .drift { animation: drift 16s ease-in-out infinite; }
-    .drift-slow { animation: drift 22s ease-in-out infinite reverse; }
-
-    @keyframes pulse-ring { 0% { transform: scale(0.85); opacity: 0.7; } 70% { transform: scale(1.7); opacity: 0; } 100% { opacity: 0; } }
-    .pulse-ring { animation: pulse-ring 2.8s ease-out infinite; }
-
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.85s var(--ease-spring), transform 0.85s var(--ease-spring); will-change: transform, opacity; }
+    /* ---------- scroll reveals ---------- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out); will-change: transform, opacity; }
+    .reveal.from-left { transform: translateX(-36px); }
+    .reveal.from-right { transform: translateX(36px); }
+    .reveal.zoom { transform: scale(0.955) translateY(18px); }
     .reveal.in { opacity: 1; transform: none; }
 
-    @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    .rise { opacity: 0; animation: rise 1s var(--ease-spring) forwards; }
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .rise { opacity: 0; animation: rise 0.9s var(--ease-out) forwards; }
 
-    .nav-link { position: relative; transition: color 0.3s var(--ease-spring); }
-    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; height: 1.5px; width: 0; background: #E69A73; transition: width 0.4s var(--ease-spring); }
-    .nav-link:hover { color: #211B47; }
+    .nav-link { position: relative; transition: color 0.3s var(--ease-out); }
+    .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; height: 1.5px; width: 0; background: #E3541D; transition: width 0.35s var(--ease-out); }
+    .nav-link:hover { color: #131419; }
     .nav-link:hover::after { width: 100%; }
 
-    .icon-chip { background: linear-gradient(135deg, #FBE6D6, #F6D2B8); }
-    .eyebrow { font-family: '"JetBrains Mono"', monospace; letter-spacing: 0.16em; text-transform: uppercase; }
-
-    /* Mobile menu */
+    /* ---------- mobile menu ---------- */
     .mobile-menu { display: grid; grid-template-rows: 0fr; opacity: 0; visibility: hidden; transform: translateY(-6px);
-      transition: grid-template-rows 0.45s var(--ease-spring), opacity 0.35s var(--ease-spring), transform 0.45s var(--ease-spring), visibility 0.45s; }
+      transition: grid-template-rows 0.45s var(--ease-out), opacity 0.35s var(--ease-out), transform 0.45s var(--ease-out), visibility 0.45s; }
     .mobile-menu > div { min-height: 0; }
     .mobile-menu.open { grid-template-rows: 1fr; opacity: 1; visibility: visible; transform: translateY(0); }
     #menu-toggle.open .burger-line:nth-child(2) { transform: translateY(0) rotate(45deg); }
@@ -189,62 +225,56 @@
 
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-    .demo-tab { transition: color 0.35s var(--ease-spring), background 0.35s var(--ease-spring), box-shadow 0.35s var(--ease-spring); }
+    /* ---------- demo tabs ---------- */
+    .demo-tab { transition: color 0.35s var(--ease-out), background-color 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out); }
     .demo-tab:hover { color: #fff; }
-    .demo-tab.active-tab { background: var(--peach-grad); color: #2A1B10; box-shadow: 0 10px 28px -12px rgba(206,122,82,0.6); }
-    .demo-tab:focus-visible { outline: 2px solid rgba(244,198,168,0.8); outline-offset: 2px; }
+    .demo-tab.active-tab { background: #E3541D; color: #fff; box-shadow: 0 10px 26px -10px rgba(227,84,29,0.65); }
+    .demo-tab:focus-visible { outline: 2px solid rgba(227,84,29,0.8); outline-offset: 2px; }
+
+    /* ---------- faq ---------- */
+    .faq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.5s var(--ease-out); }
+    .faq-panel > div { min-height: 0; overflow: hidden; }
+    .faq-item.open .faq-panel { grid-template-rows: 1fr; }
+    .faq-icon { transition: transform 0.4s var(--ease-out); }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-q { transition: color 0.3s var(--ease-out); }
+    .faq-item.open .faq-q, .faq-btn:hover .faq-q { color: #E3541D; }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .reveal { opacity: 1 !important; transform: none !important; }
       .rise { opacity: 1 !important; }
-      .underline-draw svg path { stroke-dashoffset: 0 !important; }
+      .badge-slot { opacity: 1 !important; }
       html { scroll-behavior: auto; }
     }
   </style>
 </head>
 
-<body class="bg-bg text-ink font-body antialiased overflow-x-hidden grain">
+<body class="bg-canvas text-ink font-body antialiased overflow-x-hidden">
 
   <!-- ============ HEADER ============ -->
   <header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
-    <!-- utility contact bar -->
-    <div id="topbar" class="border-b border-ink/[0.07] bg-bg/80 backdrop-blur-md overflow-hidden transition-all duration-500">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8 h-9 flex items-center gap-4 text-[11px] sm:text-xs text-muted">
-        <span class="hidden md:inline eyebrow text-[10px] text-peach-ink/80">Answer leads · Book jobs · Skip the busywork</span>
-        <div class="flex items-center gap-4 sm:gap-6 ml-auto">
-          <a href="mailto:axentrax@gmail.com" class="inline-flex items-center gap-1.5 hover:text-ink transition-colors">
-            <svg class="h-3.5 w-3.5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg>
-            <span class="hidden sm:inline">axentrax@gmail.com</span><span class="sm:hidden">Email us</span>
-          </a>
-          <span class="inline-flex items-center gap-1.5">
-            <svg class="h-3.5 w-3.5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
-            <span class="whitespace-nowrap"><a href="tel:+919839886348" class="hover:text-ink transition-colors">+91 98398 86348</a><span class="hidden sm:inline">,&nbsp;</span><a href="tel:+14378898764" class="hidden sm:inline hover:text-ink transition-colors">+1 437-889-8764</a></span>
-          </span>
-        </div>
-      </div>
-    </div>
-    <!-- main nav -->
     <div class="mx-auto max-w-7xl px-5 sm:px-8">
-      <nav class="mt-3 flex items-center justify-between rounded-2xl border border-ink/[0.08] bg-paper/70 backdrop-blur-xl pl-5 pr-3 py-2.5 shadow-soft transition-all duration-500" id="nav-bar">
+      <nav id="nav-bar" class="mt-4 flex items-center justify-between rounded-2xl border border-ink/[0.07] bg-canvas/80 backdrop-blur-xl pl-5 pr-3 py-2.5 transition-all duration-500">
         <a href="#top" class="flex items-center group" aria-label="axentraX home">
-          <span class="font-display text-2xl font-semibold tracking-[-0.02em] text-ink transition-transform duration-500 group-hover:-translate-y-px">axentra<span class="text-peach-deep italic">X</span></span>
+          <span class="font-display text-[1.35rem] font-bold tracking-[-0.02em] text-ink transition-transform duration-500 group-hover:-translate-y-px">axentra<span class="text-ember">X</span></span>
         </a>
 
-        <div class="hidden md:flex items-center gap-8 text-sm text-muted">
-          <a href="#problem" class="nav-link">Why us</a>
-          <a href="#services" class="nav-link">Services</a>
+        <div class="hidden md:flex items-center gap-7 text-[12.5px] font-semibold tracking-[0.08em] uppercase text-muted">
+          <a href="#problem" class="nav-link">The problem</a>
+          <a href="#shift" class="nav-link">What changes</a>
           <a href="#demo" class="nav-link">See it live</a>
           <a href="#process" class="nav-link">How it works</a>
           <a href="#reviews" class="nav-link">Results</a>
+          <a href="#faq" class="nav-link">FAQ</a>
         </div>
 
         <div class="flex items-center gap-2">
-          <a href="#contact" class="hidden md:inline-block btn-peach text-sm font-semibold rounded-xl px-5 py-3">
-            Book a free call
+          <a href="#contact" class="hidden md:inline-block btn-ink text-[12.5px] font-semibold tracking-[0.06em] uppercase rounded-full px-5 py-3">
+            Book a call
           </a>
           <button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"
-                  class="md:hidden relative grid h-11 w-11 place-items-center rounded-xl border border-ink/[0.12] bg-paper text-ink transition-colors duration-300 hover:bg-cream active:scale-95">
+                  class="md:hidden relative grid h-11 w-11 place-items-center rounded-xl border border-ink/[0.12] bg-paper text-ink transition-colors duration-300 hover:bg-canvas active:scale-95">
             <span class="sr-only">Toggle navigation</span>
             <span class="burger-line absolute h-[1.5px] w-5 rounded-full bg-ink transition-all duration-300 -translate-y-[5px]"></span>
             <span class="burger-line absolute h-[1.5px] w-5 rounded-full bg-ink transition-all duration-300"></span>
@@ -257,14 +287,15 @@
       <div id="mobile-menu" class="md:hidden mobile-menu mt-2 overflow-hidden">
         <div class="rounded-2xl border border-ink/[0.08] bg-paper/95 backdrop-blur-xl p-2.5 shadow-lift">
           <nav class="flex flex-col">
-            <a href="#problem" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-cream">Why us <span class="text-peach-deep/60">→</span></a>
-            <a href="#services" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-cream">Services <span class="text-peach-deep/60">→</span></a>
-            <a href="#demo" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-cream">See it live <span class="text-peach-deep/60">→</span></a>
-            <a href="#process" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-cream">How it works <span class="text-peach-deep/60">→</span></a>
-            <a href="#reviews" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-cream">Results <span class="text-peach-deep/60">→</span></a>
+            <a href="#problem" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-canvas">The problem <span class="text-ember/60">→</span></a>
+            <a href="#shift" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-canvas">What changes <span class="text-ember/60">→</span></a>
+            <a href="#demo" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-canvas">See it live <span class="text-ember/60">→</span></a>
+            <a href="#process" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-canvas">How it works <span class="text-ember/60">→</span></a>
+            <a href="#reviews" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-canvas">Results <span class="text-ember/60">→</span></a>
+            <a href="#faq" class="mobile-link flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium text-ink/90 transition-colors hover:bg-canvas">FAQ <span class="text-ember/60">→</span></a>
           </nav>
           <div class="mt-2 border-t border-ink/[0.07] pt-2.5 px-1.5 pb-1.5">
-            <a href="#contact" class="mobile-link btn-peach flex items-center justify-center text-sm font-semibold rounded-xl px-6 py-3.5">Book a free call →</a>
+            <a href="#contact" class="mobile-link btn-ember flex items-center justify-center text-sm font-semibold rounded-xl px-6 py-3.5">Book a free call →</a>
           </div>
         </div>
       </div>
@@ -274,99 +305,116 @@
   <main id="top">
 
     <!-- ============ HERO ============ -->
-    <section class="relative pt-36 pb-20 sm:pt-48 sm:pb-28 overflow-hidden" id="hero">
-      <div class="absolute inset-0 -z-10">
-        <div class="absolute inset-0 dotgrid opacity-70"></div>
-        <div id="hero-glow" class="absolute left-1/2 top-[-12%] -translate-x-1/2 h-[560px] w-[820px] rounded-full blur-[120px] opacity-60 drift"
-             style="background: radial-gradient(circle at 50% 50%, rgba(244,198,168,0.7), rgba(230,154,115,0.25) 48%, transparent 72%)"></div>
-        <div class="absolute right-[-6%] top-[24%] h-[360px] w-[360px] rounded-full blur-[120px] opacity-40 drift-slow"
-             style="background: radial-gradient(circle, rgba(124,108,210,0.35), transparent 66%)"></div>
-        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-bg to-transparent"></div>
+    <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-20 overflow-hidden" id="hero">
+      <!-- arc graphic -->
+      <div class="arc-wrap hidden md:block" aria-hidden="true">
+        <div class="arc-ring"></div>
+        <div class="arc-ring-edge"></div>
+        <div class="orbit"><span class="orbit-dot"></span></div>
+        <!-- tool badges circling the ring; slot handles position + fade, badge counter-rotates to stay upright -->
+        <div class="orbit-carousel">
+          <!-- 6 badges spaced 60° apart so 2–3 are always travelling the visible band -->
+          <div class="badge-slot" style="left:44.8%; top:92.3%; margin-left:-37px; margin-top:-37px; animation-delay:-6.2s">
+            <div class="arc-badge h-[74px] w-[74px]">
+              <svg class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.51 3.78 1.4 5.37L2 22l4.83-1.5a9.9 9.9 0 0 0 5.2 1.46h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.34-.5.05-.97.24-3.27-.68-2.77-1.09-4.53-3.92-4.67-4.1-.13-.18-1.12-1.49-1.12-2.85 0-1.36.71-2.02.97-2.3.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.39-.06.6.46.24.55.81 1.91.88 2.05.07.14.12.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.6-.14.24.09 1.55.73 1.81.86.27.14.45.2.51.32.07.11.07.64-.17 1.32z"/></svg>
+            </div>
+          </div>
+          <div class="badge-slot" style="left:10.8%; top:66.6%; margin-left:-31px; margin-top:-31px; animation-delay:-16.2s">
+            <div class="arc-badge h-[62px] w-[62px]">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+            </div>
+          </div>
+          <div class="badge-slot" style="left:16%; top:24.4%; margin-left:-27px; margin-top:-27px; animation-delay:-26.2s">
+            <div class="arc-badge h-[54px] w-[54px]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg>
+            </div>
+          </div>
+          <div class="badge-slot" style="left:55.2%; top:7.7%; margin-left:-24px; margin-top:-24px; animation-delay:-36.2s">
+            <div class="arc-badge h-[48px] w-[48px]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="16" rx="2"/><path stroke-linecap="round" d="M3 9.5h18M8 3v4M16 3v4M8.5 14h2M13.5 14h2M8.5 17.5h2"/></svg>
+            </div>
+          </div>
+          <div class="badge-slot" style="left:89.2%; top:33.4%; margin-left:-29px; margin-top:-29px; animation-delay:-46.2s">
+            <div class="arc-badge h-[58px] w-[58px]">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 2h9a2 2 0 012 2v16a2 2 0 01-2 2H6a2 2 0 01-2-2V7l5-5z"/><path stroke-linecap="round" d="M9 2v5H4M8.5 12h7M8.5 15.5h7M8.5 19h4"/></svg>
+            </div>
+          </div>
+          <div class="badge-slot" style="left:84%; top:75.6%; margin-left:-33px; margin-top:-33px; animation-delay:-56.2s">
+            <div class="arc-badge h-[66px] w-[66px]">
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 3A6.5 6.5 0 003 9.5c0 1.6.6 3 1.5 4.2L3 21l3-1.5A6.5 6.5 0 1014.5 3h-5z"/></svg>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="mx-auto max-w-5xl px-5 sm:px-8 text-center">
-        <h1 class="rise font-display text-[2.6rem] leading-[1.04] sm:text-6xl md:text-[4.4rem] font-semibold tracking-[-0.025em] text-ink text-balance" style="animation-delay:.1s">
-          Right now, your business<br class="hidden sm:block" />
-          runs through
-          <span class="underline-draw"><span class="accent">you.</span><svg viewBox="0 0 300 24" preserveAspectRatio="none"><path d="M4 15 C 70 6, 150 6, 296 13"/></svg></span>
-          <span class="block mt-2 sm:mt-3">It doesn't have to.</span>
-        </h1>
+      <div class="mx-auto max-w-7xl px-5 sm:px-8 relative">
+        <div class="max-w-2xl">
+          <span class="rise inline-flex items-center gap-2 rounded-full border border-ember/25 bg-ember-soft/70 px-3.5 py-1.5 eyebrow text-[10.5px] text-ember-deep" style="animation-delay:.05s">
+            From enquiry to invoice
+          </span>
 
-        <p class="rise mx-auto mt-7 max-w-2xl text-base sm:text-[1.18rem] leading-[1.75] text-muted" style="animation-delay:.28s">
-          Chasing leads, answering the same questions, booking jobs, sending follow-ups — it quietly eats your week and ties you to your phone. We build AI agents and automations that handle it the way you would, <span class="text-ink font-medium">day and night</span>, so the work keeps moving without you in the middle of it.
-        </p>
+          <h1 class="rise font-display text-[2.7rem] leading-[1.03] sm:text-6xl lg:text-[4.3rem] font-bold tracking-[-0.03em] text-ink mt-6 text-balance" style="animation-delay:.15s">
+            Your business runs through&nbsp;you.<br />
+            <span class="text-ink">It doesn't have to.</span>
+          </h1>
 
-        <div class="rise mt-9 flex flex-col sm:flex-row items-center justify-center gap-3.5" style="animation-delay:.4s">
-          <a href="#contact" class="btn-peach w-full sm:w-auto text-sm font-semibold rounded-xl px-6 py-3.5">Book a free strategy call →</a>
-          <a href="#demo" class="btn-outline w-full sm:w-auto text-sm font-semibold rounded-xl px-6 py-3.5">Watch a real agent work</a>
+          <p class="rise mt-6 max-w-xl text-base sm:text-lg leading-[1.7] text-muted" style="animation-delay:.3s">
+            The missed lead, the repeated answer, the follow-up you keep meaning to send — that's what actually caps your growth. We take that work off your plate and hand it to systems that reply in seconds and never forget, <span class="text-ink font-medium">day and night</span>.
+          </p>
+
+          <div class="rise mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-3.5" style="animation-delay:.42s">
+            <a href="#contact" class="btn-ember text-[13px] font-semibold tracking-[0.05em] uppercase rounded-full px-7 py-4">Book a free call</a>
+            <a href="#demo" class="btn-ghost text-[13px] font-semibold tracking-[0.05em] uppercase rounded-full px-7 py-4">Watch it work ↓</a>
+          </div>
+
+          <p class="rise mt-6 text-[13px] text-muted/90" style="animation-delay:.52s">
+            30 minutes · no slides, no pressure · a plan you can use with or without us
+          </p>
         </div>
 
-        <p class="rise mt-7 text-[13px] text-muted/90" style="animation-delay:.52s">
-          A 30-minute call · no slides, no pressure · a plan you can use with or without us
-        </p>
-      </div>
-
-      <!-- hero panel: a quiet ledger of what got handled -->
-      <div class="rise mx-auto mt-16 max-w-4xl px-5 sm:px-8" style="animation-delay:.62s">
-        <div class="rounded-4xl border border-ink/[0.08] bg-paper p-2.5 shadow-lift">
-          <div class="rounded-[1.55rem] border border-line bg-bg/70 overflow-hidden">
-            <div class="flex items-center gap-2.5 border-b border-line px-5 py-3.5">
-              <span class="h-2.5 w-2.5 rounded-full bg-peach/70"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-ink/15"></span>
-              <span class="ml-2 font-mono text-[11px] text-muted">today · handled while you were on a job</span>
-              <span class="ml-auto inline-flex items-center gap-1.5 text-[11px] text-emerald-600"><span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> live</span>
-            </div>
-            <div class="grid sm:grid-cols-3 gap-3 p-4 sm:p-6">
-              <div class="rounded-2xl border border-line bg-paper p-5 shadow-soft">
-                <p class="font-mono text-[11px] uppercase tracking-wide text-muted">Leads answered</p>
-                <p class="font-display text-4xl font-semibold mt-1.5 text-ink"><span class="count" data-to="47">0</span></p>
-                <p class="mt-1 text-xs text-muted">in under 2 minutes each</p>
-                <div class="mt-4 h-1.5 rounded-full bg-cream overflow-hidden"><div class="h-full w-[88%] rounded-full" style="background:var(--peach-grad)"></div></div>
-              </div>
-              <div class="rounded-2xl border border-line bg-paper p-5 shadow-soft">
-                <p class="font-mono text-[11px] uppercase tracking-wide text-muted">Follow-ups sent</p>
-                <p class="font-display text-4xl font-semibold mt-1.5 text-ink"><span class="count" data-to="31">0</span></p>
-                <p class="mt-1 text-xs text-muted">nothing slipped today</p>
-                <div class="mt-4 h-1.5 rounded-full bg-cream overflow-hidden"><div class="h-full w-[72%] rounded-full" style="background:var(--peach-grad)"></div></div>
-              </div>
-              <div class="rounded-2xl border border-line bg-ink p-5 shadow-soft">
-                <p class="font-mono text-[11px] uppercase tracking-wide text-peach-soft/80">Your time back</p>
-                <p class="font-display text-4xl font-semibold mt-1.5 text-bg"><span class="count" data-to="6">0</span>h</p>
-                <p class="mt-1 text-xs text-peach-soft/70">today alone</p>
-                <div class="mt-4 h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="h-full w-[80%] rounded-full" style="background:var(--peach-grad)"></div></div>
-              </div>
-            </div>
+        <!-- bottom row: quiet stats ledger, centered clear of the ring -->
+        <div class="rise mt-16 sm:mt-20 flex flex-wrap justify-center gap-x-16 gap-y-8 md:mr-[26%]" style="animation-delay:.6s">
+          <div class="text-center">
+            <p class="font-display text-[2.6rem] leading-none font-bold tracking-[-0.02em] text-ink"><span class="count" data-to="90">0</span>s</p>
+            <p class="mt-2 text-[13px] text-muted">Typical first reply</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display text-[2.6rem] leading-none font-bold tracking-[-0.02em] text-ink">24/7</p>
+            <p class="mt-2 text-[13px] text-muted">Nothing goes unanswered</p>
+          </div>
+          <div class="text-center">
+            <p class="font-display text-[2.6rem] leading-none font-bold tracking-[-0.02em] text-ink"><span class="count" data-to="30">0</span>+ hrs</p>
+            <p class="mt-2 text-[13px] text-muted">Back in your week</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ INTEGRATIONS STRIP ============ -->
-    <section class="py-12 border-y border-line bg-cream/50">
+    <section class="py-10 border-y border-line bg-paper/60">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
-        <p class="reveal text-center eyebrow text-[11px] text-muted mb-8">Plugs into the tools you already run on</p>
+        <p class="reveal text-center eyebrow text-[10.5px] text-muted mb-7">Works inside the tools you already run on</p>
         <div class="marquee-mask overflow-hidden">
-          <div class="marquee-track flex w-max items-center gap-14 text-ink/45">
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">WhatsApp</span>
-            <span class="font-display text-2xl font-medium whitespace-nowrap">Gmail</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">Slack</span>
-            <span class="font-display text-2xl font-medium italic whitespace-nowrap">HubSpot</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">Calendly</span>
-            <span class="font-display text-2xl font-medium whitespace-nowrap">Google&nbsp;Sheets</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">Stripe</span>
-            <span class="font-display text-2xl font-medium whitespace-nowrap">Notion</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">n8n</span>
-            <!-- repeat -->
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">WhatsApp</span>
-            <span class="font-display text-2xl font-medium whitespace-nowrap">Gmail</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">Slack</span>
-            <span class="font-display text-2xl font-medium italic whitespace-nowrap">HubSpot</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">Calendly</span>
-            <span class="font-display text-2xl font-medium whitespace-nowrap">Google&nbsp;Sheets</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">Stripe</span>
-            <span class="font-display text-2xl font-medium whitespace-nowrap">Notion</span>
-            <span class="font-display text-2xl font-semibold whitespace-nowrap">n8n</span>
+          <div class="marquee-track flex w-max items-center gap-14 text-ink/40">
+            <span class="font-display text-xl font-bold whitespace-nowrap">WhatsApp</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">Gmail</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">Slack</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">HubSpot</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">Calendly</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">Google&nbsp;Sheets</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">Stripe</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">Notion</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">n8n</span>
+            <!-- repeat for seamless loop -->
+            <span class="font-display text-xl font-bold whitespace-nowrap">WhatsApp</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">Gmail</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">Slack</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">HubSpot</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">Calendly</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">Google&nbsp;Sheets</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">Stripe</span>
+            <span class="font-display text-xl font-medium whitespace-nowrap">Notion</span>
+            <span class="font-display text-xl font-bold whitespace-nowrap">n8n</span>
           </div>
         </div>
       </div>
@@ -375,148 +423,235 @@
     <!-- ============ THE PROBLEM ============ -->
     <section id="problem" class="py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
-        <div class="reveal max-w-2xl">
-          <p class="eyebrow text-xs text-peach-ink mb-4 flex items-center gap-2"><span class="h-px w-6 bg-peach-deep/50"></span> The honest part</p>
-          <h2 class="font-display text-3xl sm:text-[2.9rem] font-semibold tracking-[-0.02em] leading-[1.1] text-ink">
-            If you're the answer to every question, <span class="accent">you're the bottleneck.</span>
-          </h2>
-          <p class="mt-5 text-muted leading-[1.75] text-lg">You already know the work that's holding you back. It's not the big strategic stuff — it's the same handful of small things, over and over, that only seem to happen when you do them.</p>
-        </div>
+        <div class="grid lg:grid-cols-[1fr_minmax(0,420px)] gap-12 lg:gap-20 items-start">
+          <div class="reveal from-left max-w-2xl">
+            <p class="eyebrow text-[11px] text-ember mb-4 flex items-center gap-2"><span class="h-px w-6 bg-ember/50"></span> The honest part</p>
+            <h2 class="font-display text-3xl sm:text-[2.8rem] font-bold tracking-[-0.025em] leading-[1.08] text-ink">
+              You're not short on leads.<br />You're short on hours.
+            </h2>
+            <p class="mt-5 text-muted leading-[1.75] text-lg">If every question, quote, and follow-up has to pass through you, you're the bottleneck — and the business can only grow as fast as your day allows. You already know which small jobs eat the week. They only seem to happen when you do them.</p>
 
-        <div class="mt-14 grid md:grid-cols-3 gap-5">
-          <div class="reveal card rounded-3xl border border-line bg-paper p-7 shadow-soft">
-            <div class="icon-chip grid h-12 w-12 place-items-center rounded-2xl border border-peach/30 mb-5">
-              <svg class="h-6 w-6 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="mt-10 space-y-6">
+              <div class="flex gap-4">
+                <span class="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ember-soft text-ember-deep font-display text-sm font-bold">1</span>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-ink">Leads go cold while you work</h3>
+                  <p class="mt-1.5 text-[15px] text-muted leading-[1.7]">By the time you check your phone, they've booked whoever replied first. Speed wins the job — and you can't always be the one who's fast.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ember-soft text-ember-deep font-display text-sm font-bold">2</span>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-ink">The same work, on repeat</h3>
+                  <p class="mt-1.5 text-[15px] text-muted leading-[1.7]">The same five questions. The same quote, retyped. The follow-up you keep meaning to send. Hours every week on work that never moves you forward.</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <span class="mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ember-soft text-ember-deep font-display text-sm font-bold">3</span>
+                <div>
+                  <h3 class="font-display text-lg font-bold text-ink">Growth just means more admin</h3>
+                  <p class="mt-1.5 text-[15px] text-muted leading-[1.7]">Every new client adds messages, scheduling, and chasing. Hiring is slow and expensive — so you absorb it, and the busier you get, the less you breathe.</p>
+                </div>
+              </div>
             </div>
-            <h3 class="font-display text-xl font-semibold text-ink">Leads go cold while you work</h3>
-            <p class="mt-2.5 text-[15px] text-muted leading-[1.7]">By the time you've finished the job and checked your phone, they've already booked whoever replied first. Speed wins the work — and you can't always be the one who's fast.</p>
           </div>
-          <div class="reveal card rounded-3xl border border-line bg-paper p-7 shadow-soft" style="transition-delay:.08s">
-            <div class="icon-chip grid h-12 w-12 place-items-center rounded-2xl border border-peach/30 mb-5">
-              <svg class="h-6 w-6 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h5M20 20v-5h-5M4 9a8 8 0 0114-3M20 15A8 8 0 016 18"/></svg>
+
+          <!-- a day, as it actually happens -->
+          <div class="reveal from-right rounded-3xl border border-ink/[0.08] bg-paper p-6 sm:p-7 shadow-lift" style="transition-delay:.1s">
+            <p class="eyebrow text-[10.5px] text-muted">A Tuesday, as it actually happens</p>
+            <div class="mt-5 space-y-0 text-[14px]">
+              <div class="flex gap-4 pb-5 border-b border-line">
+                <span class="font-mono text-[11px] text-muted pt-0.5 w-14 shrink-0">11:04</span>
+                <p class="text-ink/85 leading-[1.6]">A lead messages: <span class="font-medium text-ink">"Are you free this week?"</span></p>
+              </div>
+              <div class="flex gap-4 py-5 border-b border-line">
+                <span class="font-mono text-[11px] text-muted pt-0.5 w-14 shrink-0">11:05</span>
+                <p class="text-muted leading-[1.6]">You're mid-job. Phone stays in your pocket.</p>
+              </div>
+              <div class="flex gap-4 py-5 border-b border-line">
+                <span class="font-mono text-[11px] text-muted pt-0.5 w-14 shrink-0">16:20</span>
+                <p class="text-muted leading-[1.6]">You reply. <span class="text-ink/80">"Sorry for the delay!"</span></p>
+              </div>
+              <div class="flex gap-4 pt-5">
+                <span class="font-mono text-[11px] text-muted pt-0.5 w-14 shrink-0">16:21</span>
+                <p class="text-ink/85 leading-[1.6]"><span class="font-medium text-ember-deep">"No worries — we've gone with someone else."</span></p>
+              </div>
             </div>
-            <h3 class="font-display text-xl font-semibold text-ink">The same things, on repeat</h3>
-            <p class="mt-2.5 text-[15px] text-muted leading-[1.7]">The same five questions. The same quote, retyped. The same follow-up you keep meaning to send. Hours every week spent on work that never actually moves you forward.</p>
-          </div>
-          <div class="reveal card rounded-3xl border border-line bg-paper p-7 shadow-soft" style="transition-delay:.16s">
-            <div class="icon-chip grid h-12 w-12 place-items-center rounded-2xl border border-peach/30 mb-5">
-              <svg class="h-6 w-6 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l6-6 4 4 8-8M21 7v5h-5"/></svg>
+            <div class="mt-6 rounded-2xl bg-navy-deep p-5 text-[13.5px] leading-[1.65] text-white/80">
+              That job didn't go to a better business.<br /><span class="text-white font-medium">It went to a faster reply.</span>
             </div>
-            <h3 class="font-display text-xl font-semibold text-ink">Growth just means more admin</h3>
-            <p class="mt-2.5 text-[15px] text-muted leading-[1.7]">Every new client adds messages, scheduling, and chasing. Hiring is slow and expensive — so you absorb it yourself, until the busier you get, the less you actually breathe.</p>
           </div>
         </div>
-
-        <p class="reveal mt-10 text-center text-muted">That's exactly the work we take off your plate. <a href="#services" class="text-peach-ink font-medium underline decoration-peach/40 underline-offset-4 hover:decoration-peach transition">Here's how →</a></p>
       </div>
     </section>
 
-    <!-- ============ SERVICES ============ -->
-    <section id="services" class="py-24 sm:py-32 relative overflow-hidden bg-cream/40 border-y border-line">
+    <!-- ============ WHAT CHANGES (before / after) ============ -->
+    <section id="shift" class="py-24 sm:py-32 bg-paper/60 border-y border-line">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
-        <div class="reveal max-w-2xl mx-auto text-center">
-          <p class="eyebrow text-xs text-peach-ink mb-4">What we actually do</p>
-          <h2 class="font-display text-3xl sm:text-[2.9rem] font-semibold tracking-[-0.02em] leading-[1.1] text-ink">
-            Three ways we take <span class="accent">work off your plate</span>
+        <div class="reveal from-left max-w-2xl">
+          <p class="eyebrow text-[11px] text-ember mb-4 flex items-center gap-2"><span class="h-px w-6 bg-ember/50"></span> What changes</p>
+          <h2 class="font-display text-3xl sm:text-[2.8rem] font-bold tracking-[-0.025em] leading-[1.08] text-ink">
+            Same business. Same tools.<br />The week just stops leaking.
           </h2>
-          <p class="mt-5 text-muted leading-[1.75] text-lg">No jargon, no 40-page deck. We find the work that's draining your week and quietly hand it to systems that don't get tired, distracted, or sick.</p>
+          <p class="mt-5 text-muted leading-[1.75] text-lg">Nothing gets replaced and nobody gets sidelined. The work you shouldn't be doing simply stops waiting for you.</p>
         </div>
 
-        <div class="mt-16 space-y-5">
-          <!-- Row 1 -->
-          <div class="reveal grid lg:grid-cols-2 gap-8 items-center rounded-4xl border border-line bg-paper p-7 sm:p-10 shadow-soft">
-            <div>
-              <span class="inline-block font-mono text-[11px] uppercase tracking-wide text-peach-ink bg-peach-soft/30 border border-peach/30 rounded-full px-3 py-1">01 · Workflow automation</span>
-              <h3 class="font-display text-2xl sm:text-[1.9rem] font-semibold mt-4 tracking-[-0.01em] text-ink">The repetitive work, running on its own</h3>
-              <p class="mt-3 text-muted leading-[1.75]">We map the manual steps you do every day — moving data, sending quotes, updating your sheet, nudging people who went quiet — and rebuild them as reliable automations that run themselves, 24/7.</p>
-              <ul class="mt-5 space-y-2.5 text-[15px]">
-                <li class="flex items-center gap-3 text-muted"><span class="grid h-5 w-5 place-items-center rounded-full" style="background:var(--peach-grad)"><svg class="h-3 w-3 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> Multi-step pipelines that trigger off your inbox, forms, or CRM</li>
-                <li class="flex items-center gap-3 text-muted"><span class="grid h-5 w-5 place-items-center rounded-full" style="background:var(--peach-grad)"><svg class="h-3 w-3 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> You stay in the loop where it matters — approvals on your terms</li>
-                <li class="flex items-center gap-3 text-muted"><span class="grid h-5 w-5 place-items-center rounded-full" style="background:var(--peach-grad)"><svg class="h-3 w-3 text-ink" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span> If something breaks, you hear about it before your customer does</li>
-              </ul>
+        <div class="mt-14 space-y-4">
+          <!-- row 1 -->
+          <div class="reveal grid md:grid-cols-[200px_1fr_1fr] gap-4 md:gap-0 rounded-3xl border border-ink/[0.08] bg-paper overflow-hidden shadow-soft">
+            <div class="p-6 sm:p-7 flex md:flex-col justify-between gap-3 border-b md:border-b-0 md:border-r border-line">
+              <p class="font-display font-bold text-ink leading-tight">New<br class="hidden md:block" /> enquiries</p>
+              <p class="font-mono text-[10.5px] uppercase tracking-wider text-muted">WhatsApp · calls · forms</p>
             </div>
-            <div class="rounded-3xl border border-line bg-bg/60 p-4">
-              <div class="space-y-3">
-                <div class="flex items-center gap-3 rounded-2xl border border-line bg-paper p-3.5 shadow-soft">
-                  <span class="grid h-9 w-9 place-items-center rounded-xl icon-chip border border-peach/30"><svg class="h-4 w-4 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg></span>
-                  <div class="flex-1"><p class="text-sm font-medium text-ink">New enquiry lands</p><p class="font-mono text-[11px] text-muted">trigger · gmail</p></div>
-                  <span class="text-xs text-peach-deep">●</span>
-                </div>
-                <div class="ml-5 h-5 w-px bg-gradient-to-b from-peach/60 to-transparent"></div>
-                <div class="flex items-center gap-3 rounded-2xl border border-line bg-paper p-3.5 shadow-soft">
-                  <span class="grid h-9 w-9 place-items-center rounded-xl icon-chip border border-peach/30"><svg class="h-4 w-4 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3"/></svg></span>
-                  <div class="flex-1"><p class="text-sm font-medium text-ink">Agent replies &amp; qualifies</p><p class="font-mono text-[11px] text-muted">action · axentraX</p></div>
-                  <span class="font-mono text-[11px] text-muted">running…</span>
-                </div>
-                <div class="ml-5 h-5 w-px bg-gradient-to-b from-peach/60 to-transparent"></div>
-                <div class="flex items-center gap-3 rounded-2xl border border-line bg-paper p-3.5 shadow-soft">
-                  <span class="grid h-9 w-9 place-items-center rounded-xl icon-chip border border-peach/30"><svg class="h-4 w-4 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                  <div class="flex-1"><p class="text-sm font-medium text-ink">Booked to your calendar</p><p class="font-mono text-[11px] text-muted">done · 1.2s</p></div>
-                  <span class="text-xs text-emerald-600 font-medium">done</span>
-                </div>
-              </div>
+            <div class="p-6 sm:p-7 md:border-r border-line">
+              <p class="eyebrow text-[10px] text-muted mb-2.5">Today</p>
+              <p class="text-[15px] text-muted leading-[1.7]">A message lands at 9:40 pm. You see it at 7 am. They booked someone else at 9:52 pm.</p>
+            </div>
+            <div class="p-6 sm:p-7 bg-ember-soft/40">
+              <p class="eyebrow text-[10px] text-ember-deep mb-2.5">After</p>
+              <p class="text-[15px] text-ink/85 leading-[1.7]">Answered in about 90 seconds, in your tone. Qualified, quoted, and on your calendar before you've heard about it.</p>
             </div>
           </div>
+          <!-- row 2 -->
+          <div class="reveal grid md:grid-cols-[200px_1fr_1fr] gap-4 md:gap-0 rounded-3xl border border-ink/[0.08] bg-paper overflow-hidden shadow-soft" style="transition-delay:.07s">
+            <div class="p-6 sm:p-7 flex md:flex-col justify-between gap-3 border-b md:border-b-0 md:border-r border-line">
+              <p class="font-display font-bold text-ink leading-tight">Follow-ups<br class="hidden md:block" /> &amp; chasing</p>
+              <p class="font-mono text-[10.5px] uppercase tracking-wider text-muted">Quotes · reminders · reviews</p>
+            </div>
+            <div class="p-6 sm:p-7 md:border-r border-line">
+              <p class="eyebrow text-[10px] text-muted mb-2.5">Today</p>
+              <p class="text-[15px] text-muted leading-[1.7]">Sent when you remember, from wherever you are. Half the quotes are never chased at all.</p>
+            </div>
+            <div class="p-6 sm:p-7 bg-ember-soft/40">
+              <p class="eyebrow text-[10px] text-ember-deep mb-2.5">After</p>
+              <p class="text-[15px] text-ink/85 leading-[1.7]">Every quote chased on time, every time. People who went quiet get a nudge that sounds like you — not a template.</p>
+            </div>
+          </div>
+          <!-- row 3 -->
+          <div class="reveal grid md:grid-cols-[200px_1fr_1fr] gap-4 md:gap-0 rounded-3xl border border-ink/[0.08] bg-paper overflow-hidden shadow-soft" style="transition-delay:.14s">
+            <div class="p-6 sm:p-7 flex md:flex-col justify-between gap-3 border-b md:border-b-0 md:border-r border-line">
+              <p class="font-display font-bold text-ink leading-tight">The admin<br class="hidden md:block" /> in between</p>
+              <p class="font-mono text-[10.5px] uppercase tracking-wider text-muted">Sheets · CRM · confirmations</p>
+            </div>
+            <div class="p-6 sm:p-7 md:border-r border-line">
+              <p class="eyebrow text-[10px] text-muted mb-2.5">Today</p>
+              <p class="text-[15px] text-muted leading-[1.7]">Copy the enquiry into the sheet. Update the CRM. Confirm the COD order. Repeat until it's dark outside.</p>
+            </div>
+            <div class="p-6 sm:p-7 bg-ember-soft/40">
+              <p class="eyebrow text-[10px] text-ember-deep mb-2.5">After</p>
+              <p class="text-[15px] text-ink/85 leading-[1.7]">It moves on its own — enquiry to sheet to CRM to confirmation — and you hear about problems before your customer does.</p>
+            </div>
+          </div>
+        </div>
 
-          <!-- Row 2 -->
-          <div class="grid lg:grid-cols-2 gap-5">
-            <div class="reveal card rounded-4xl border border-line bg-paper p-7 sm:p-9 shadow-soft">
-              <span class="inline-block font-mono text-[11px] uppercase tracking-wide text-peach-ink bg-peach-soft/30 border border-peach/30 rounded-full px-3 py-1">02 · AI agents</span>
-              <h3 class="font-display text-2xl font-semibold mt-4 tracking-[-0.01em] text-ink">A teammate who never misses a message</h3>
-              <p class="mt-3 text-muted leading-[1.75] text-[15px]">Voice and chat agents — a receptionist, an SDR, front-line support — trained on your business, answering on WhatsApp and the phone the way you'd want, every hour of every day, without a single thing slipping.</p>
-              <div class="mt-6 rounded-2xl border border-line bg-bg/60 p-4 space-y-3">
-                <div class="flex justify-end"><span class="rounded-2xl rounded-br-sm bg-cream px-3.5 py-2 text-sm text-ink max-w-[80%]">Hi, do you have any slots this Friday?</span></div>
-                <div class="flex justify-start"><span class="rounded-2xl rounded-bl-sm px-3.5 py-2 text-sm text-ink max-w-[80%]" style="background:var(--peach-grad)">Yes! I can do 11:00 AM or 2:30 PM on Friday — want me to lock one in for you? 🤝</span></div>
+        <p class="reveal mt-10 text-center text-muted text-[15px]">This is not about replacing your people. <span class="text-ink font-medium">It's about ending the work that was never worthy of them.</span></p>
+      </div>
+    </section>
+
+    <!-- ============ COST CALCULATOR ============ -->
+    <section id="calculator" class="py-24 sm:py-32">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="reveal from-left max-w-2xl">
+          <p class="eyebrow text-[11px] text-ember mb-4 flex items-center gap-2"><span class="h-px w-6 bg-ember/50"></span> Do the math</p>
+          <h2 class="font-display text-3xl sm:text-[2.8rem] font-bold tracking-[-0.025em] leading-[1.08] text-ink">
+            What is the busywork<br />actually costing you?
+          </h2>
+          <p class="mt-5 text-muted leading-[1.75] text-lg">Drag the sliders to match your week. The numbers update as you go — no email required, no catch.</p>
+        </div>
+
+        <div class="reveal zoom mt-12 overflow-hidden rounded-4xl border border-ink/[0.08] bg-paper grid lg:grid-cols-[1.05fr_0.95fr] shadow-lift">
+          <!-- sliders -->
+          <div class="p-8 sm:p-12 space-y-10">
+            <div>
+              <div class="flex items-end justify-between mb-4">
+                <label for="calc-team" class="text-sm font-semibold text-ink">People handling enquiries &amp; admin</label>
+                <span class="font-display text-2xl font-bold tracking-[-0.02em] text-ink"><span id="calc-team-val">4</span></span>
+              </div>
+              <input id="calc-team" class="slider" type="range" min="1" max="50" step="1" value="4" aria-label="People handling enquiries and admin" />
+              <div class="mt-2 flex justify-between font-mono text-[10.5px] text-muted"><span>1</span><span>50</span></div>
+            </div>
+            <div>
+              <div class="flex items-end justify-between mb-4">
+                <label for="calc-hours" class="text-sm font-semibold text-ink">Hours each spends on repetitive work, per week</label>
+                <span class="font-display text-2xl font-bold tracking-[-0.02em] text-ink"><span id="calc-hours-val">12</span>h</span>
+              </div>
+              <input id="calc-hours" class="slider" type="range" min="1" max="30" step="1" value="12" aria-label="Hours per person per week on repetitive work" />
+              <div class="mt-2 flex justify-between font-mono text-[10.5px] text-muted"><span>1h</span><span>30h</span></div>
+            </div>
+            <div>
+              <div class="flex items-end justify-between mb-4">
+                <label for="calc-salary" class="text-sm font-semibold text-ink">Average monthly pay per person</label>
+                <span class="font-display text-2xl font-bold tracking-[-0.02em] text-ink">$<span id="calc-salary-val">2,500</span></span>
+              </div>
+              <input id="calc-salary" class="slider" type="range" min="500" max="10000" step="100" value="2500" aria-label="Average monthly pay per person in dollars" />
+              <div class="mt-2 flex justify-between font-mono text-[10.5px] text-muted"><span>$500</span><span>$10,000</span></div>
+            </div>
+            <p class="text-[12.5px] leading-[1.65] text-muted/90">Based on a standard 40-hour week. Rough by design — it only has to be close enough to be uncomfortable.</p>
+          </div>
+
+          <!-- results -->
+          <div class="relative bg-navy-deep text-white p-8 sm:p-12 flex flex-col">
+            <div class="absolute right-[-30%] top-[-30%] h-[380px] w-[380px] rounded-full blur-[110px] opacity-25" style="background:radial-gradient(circle, rgba(227,84,29,0.6), transparent 70%)" aria-hidden="true"></div>
+            <div class="relative flex-1">
+              <p class="eyebrow text-[10.5px] text-ember">Spent on repetitive work</p>
+              <p class="mt-3 font-display text-[3.2rem] sm:text-[3.8rem] leading-none font-bold tracking-[-0.03em] text-white">$<span id="calc-annual">36,000</span></p>
+              <p class="mt-2 text-sm text-white/60">every year, at your numbers</p>
+
+              <div class="mt-9 grid grid-cols-2 gap-6 border-t border-white/[0.1] pt-8">
+                <div>
+                  <p class="font-display text-2xl font-bold tracking-[-0.02em] text-white">$<span id="calc-monthly">3,000</span></p>
+                  <p class="mt-1.5 text-[13px] text-white/60">every month</p>
+                </div>
+                <div>
+                  <p class="font-display text-2xl font-bold tracking-[-0.02em] text-white"><span id="calc-yearhours">2,496</span>h</p>
+                  <p class="mt-1.5 text-[13px] text-white/60">of working time a year</p>
+                </div>
+              </div>
+
+              <div class="mt-8 rounded-2xl border border-ember/30 bg-ember/[0.12] p-5">
+                <p class="text-[13px] text-white/70">Hand off just 65% of it and you free up</p>
+                <p class="mt-1.5 font-display text-[1.7rem] leading-none font-bold tracking-[-0.02em] text-ember">$<span id="calc-saved">23,400</span> <span class="text-white/80 text-lg font-semibold">/ year</span></p>
+                <p class="mt-2 text-[12.5px] leading-[1.6] text-white/60">Most builds cost a fraction of that — and pay for themselves in weeks, not years.</p>
               </div>
             </div>
-            <div class="reveal card rounded-4xl border border-line bg-paper p-7 sm:p-9 shadow-soft" style="transition-delay:.08s">
-              <span class="inline-block font-mono text-[11px] uppercase tracking-wide text-peach-ink bg-peach-soft/30 border border-peach/30 rounded-full px-3 py-1">03 · Strategy &amp; audit</span>
-              <h3 class="font-display text-2xl font-semibold mt-4 tracking-[-0.01em] text-ink">A plan before you spend a thing on building</h3>
-              <p class="mt-3 text-muted leading-[1.75] text-[15px]">We look at how your business actually runs, find the two or three changes that buy back the most time first, and hand you a prioritised plan — so nothing gets built until it's clearly worth building.</p>
-              <div class="mt-6 grid grid-cols-3 gap-3">
-                <div class="rounded-2xl border border-line bg-bg/60 p-3 text-center"><p class="font-mono text-lg font-semibold text-peach-ink">01</p><p class="text-[11px] text-muted mt-1">Look</p></div>
-                <div class="rounded-2xl border border-line bg-bg/60 p-3 text-center"><p class="font-mono text-lg font-semibold text-peach-ink">02</p><p class="text-[11px] text-muted mt-1">Prioritise</p></div>
-                <div class="rounded-2xl border border-line bg-bg/60 p-3 text-center"><p class="font-mono text-lg font-semibold text-peach-ink">03</p><p class="text-[11px] text-muted mt-1">Build</p></div>
-              </div>
-            </div>
+            <a href="#contact" class="relative btn-ember mt-8 inline-flex items-center justify-center text-[13px] font-semibold tracking-[0.05em] uppercase rounded-full px-7 py-4">See where your number hides →</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ DEMO (dark indigo band) ============ -->
-    <section id="demo" class="py-24 sm:py-32 relative overflow-hidden bg-indigo-deep text-bg">
-      <div class="absolute inset-0 dotgrid-light opacity-[0.07]" style="-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); mask-image:radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%)"></div>
-      <div class="absolute right-1/4 top-10 h-[420px] w-[620px] rounded-full blur-[160px] opacity-30" style="background:radial-gradient(circle,rgba(230,154,115,0.5),transparent 70%)"></div>
+    <!-- ============ DEMO (dark band) ============ -->
+    <section id="demo" class="py-24 sm:py-32 relative overflow-hidden bg-navy-deep text-white">
+      <div class="absolute left-1/2 top-[-20%] -translate-x-1/2 h-[440px] w-[720px] rounded-full blur-[140px] opacity-25" style="background:radial-gradient(circle, rgba(227,84,29,0.55), transparent 70%)" aria-hidden="true"></div>
       <div class="mx-auto max-w-6xl px-5 sm:px-8 relative">
         <div class="reveal max-w-2xl mx-auto text-center">
-          <p class="eyebrow text-xs text-peach-soft mb-4">See it for yourself</p>
-          <h2 class="font-display text-3xl sm:text-[2.9rem] font-semibold tracking-[-0.02em] leading-[1.1] text-bg">
-            Not a mockup. A real agent, on a <span class="accent text-peach-soft">real conversation.</span>
+          <p class="eyebrow text-[11px] text-ember mb-4">Don't take our word for it</p>
+          <h2 class="font-display text-3xl sm:text-[2.8rem] font-bold tracking-[-0.025em] leading-[1.08] text-white">
+            Not a mockup. Real work,<br />getting handled.
           </h2>
-          <p class="mt-5 text-bg/70 leading-[1.75] text-lg">Four real builds — a WhatsApp agent qualifying and quoting live leads, a voice agent taking an actual phone call, an outbound agent confirming COD orders to cut RTO losses, and a lead-to-deal CRM for property sales. No scripts, no cuts. Just watch it work.</p>
+          <p class="mt-5 text-white/60 leading-[1.75] text-lg">Four real builds on real conversations — no scripts, no cuts. Pick one and watch what your week could stop looking like.</p>
         </div>
 
         <!-- tab switcher -->
         <div class="reveal mt-10 flex justify-center">
-          <div role="tablist" aria-label="Choose a demo" class="inline-flex flex-wrap justify-center gap-1 max-w-full rounded-2xl border border-white/[0.12] bg-white/[0.05] p-1.5 backdrop-blur-sm">
+          <div role="tablist" aria-label="Choose a demo" class="inline-flex flex-wrap justify-center gap-1 max-w-full rounded-2xl border border-white/[0.1] bg-white/[0.04] p-1.5 backdrop-blur-sm">
             <button role="tab" id="tab-whatsapp" aria-controls="panel-whatsapp" aria-selected="true" data-tab="whatsapp"
-                    class="demo-tab active-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-bg/70">
+                    class="demo-tab active-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-white/60">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.51 3.78 1.4 5.37L2 22l4.83-1.5a9.9 9.9 0 0 0 5.2 1.46h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.34-.5.05-.97.24-3.27-.68-2.77-1.09-4.53-3.92-4.67-4.1-.13-.18-1.12-1.49-1.12-2.85 0-1.36.71-2.02.97-2.3.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.39-.06.6.46.24.55.81 1.91.88 2.05.07.14.12.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.6-.14.24.09 1.55.73 1.81.86.27.14.45.2.51.32.07.11.07.64-.17 1.32z"/></svg>
               WhatsApp Automation
             </button>
             <button role="tab" id="tab-voice" aria-controls="panel-voice" aria-selected="false" data-tab="voice"
-                    class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-bg/70">
+                    class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-white/60">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
               AI Voice Agent
             </button>
             <button role="tab" id="tab-rto" aria-controls="panel-rto" aria-selected="false" data-tab="rto"
-                    class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-bg/70">
+                    class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-white/60">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5h11v8H3zM14 10.5h3.6l3.4 3.2v1.8H14zM7 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6zM17.5 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z"/></svg>
               COD RTO Recovery
             </button>
             <button role="tab" id="tab-crm" aria-controls="panel-crm" aria-selected="false" data-tab="crm"
-                    class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-bg/70">
+                    class="demo-tab inline-flex items-center gap-2 rounded-xl px-4 sm:px-5 py-2.5 text-sm font-semibold text-white/60">
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20.5V9l6-4 6 4v11.5M15 20.5V11l6 4v5.5M2 20.5h20M7 12h1.5M7 15.5h1.5"/></svg>
               Real Estate CRM
             </button>
@@ -524,354 +659,296 @@
         </div>
 
         <!-- WhatsApp panel -->
-        <div class="reveal mt-12" id="panel-whatsapp" role="tabpanel" aria-labelledby="tab-whatsapp" data-panel="whatsapp">
+        <div class="reveal zoom mt-12" id="panel-whatsapp" role="tabpanel" aria-labelledby="tab-whatsapp" data-panel="whatsapp">
           <div class="group relative rounded-4xl border border-white/[0.1] bg-white/[0.04] p-2 sm:p-3 shadow-lift">
             <div class="flex items-center gap-3 px-3 sm:px-4 py-2.5">
               <span class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span></span>
-              <span class="inline-flex items-center gap-2 text-xs text-bg/70">
+              <span class="inline-flex items-center gap-2 text-xs text-white/70">
                 <svg class="h-3.5 w-3.5 text-emerald-400" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.95.51 3.78 1.4 5.37L2 22l4.83-1.5a9.9 9.9 0 0 0 5.2 1.46h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.3-1.94 1.34-.5.05-.97.24-3.27-.68-2.77-1.09-4.53-3.92-4.67-4.1-.13-.18-1.12-1.49-1.12-2.85 0-1.36.71-2.02.97-2.3.24-.27.53-.34.71-.34.18 0 .35 0 .51.01.16.01.39-.06.6.46.24.55.81 1.91.88 2.05.07.14.12.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.27.14.43.12.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.6-.14.24.09 1.55.73 1.81.86.27.14.45.2.51.32.07.11.07.64-.17 1.32z"/></svg>
                 WhatsApp Automation — B2B &amp; B2C
               </span>
-              <span class="ml-auto hidden sm:inline-flex items-center gap-1.5 font-mono text-[11px] text-bg/60"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span> recorded session</span>
+              <span class="ml-auto hidden sm:inline-flex items-center gap-1.5 font-mono text-[11px] text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span> recorded session</span>
             </div>
-            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-indigo-deep">
+            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-navy-deep">
               <video id="video-whatsapp" class="block w-full" style="aspect-ratio:160/77" preload="metadata" playsinline controls poster="whatsapp-automation-demo-poster.jpg">
                 <source src="whatsapp-automation-demo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <button type="button" data-target="video-whatsapp" aria-label="Play WhatsApp demo video"
-                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-indigo-deep/70 via-indigo-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach/70 ring-inset">
-                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full text-ink shadow-peach transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95" style="background:var(--peach-grad)">
-                  <span class="absolute inset-0 rounded-full opacity-60 animate-ping" style="background:var(--peach-grad)"></span>
+                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember/70 ring-inset">
+                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full bg-ember text-white shadow-ember transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95">
+                  <span class="absolute inset-0 rounded-full bg-ember opacity-50 animate-ping"></span>
                   <svg class="relative h-7 w-7 translate-x-[2px]" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.78-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg>
                 </span>
-                <span class="absolute bottom-5 left-5 right-5 flex items-center justify-between text-left">
+                <span class="absolute bottom-5 left-5 right-5 hidden sm:flex items-center justify-between text-left">
                   <span>
-                    <span class="block font-display text-base sm:text-lg font-semibold text-bg">Play the 2-minute demo</span>
-                    <span class="block text-xs text-bg/70">No edits, no scripted replies — just the live agent.</span>
+                    <span class="block font-display text-base sm:text-lg font-bold text-white">Play the 2-minute demo</span>
+                    <span class="block text-xs text-white/60">No edits, no scripted replies — just the live agent.</span>
                   </span>
-                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-indigo-deep/50 px-3 py-1 font-mono text-xs text-bg/80 backdrop-blur-sm">1:57</span>
+                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-navy-deep/50 px-3 py-1 font-mono text-xs text-white/80 backdrop-blur-sm">1:57</span>
                 </span>
               </button>
             </div>
           </div>
           <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-xs">
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Bulk quotes &amp; GST capture</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">After-hours follow-ups</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Hindi · Hinglish · English</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Compliance-safe replies</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Bulk quotes &amp; GST capture</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">After-hours follow-ups</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Hindi · Hinglish · English</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Compliance-safe replies</span>
           </div>
         </div>
 
         <!-- Voice panel -->
-        <div class="reveal mt-12 hidden" id="panel-voice" role="tabpanel" aria-labelledby="tab-voice" data-panel="voice">
+        <div class="reveal zoom mt-12 hidden" id="panel-voice" role="tabpanel" aria-labelledby="tab-voice" data-panel="voice">
           <div class="group relative rounded-4xl border border-white/[0.1] bg-white/[0.04] p-2 sm:p-3 shadow-lift">
             <div class="flex items-center gap-3 px-3 sm:px-4 py-2.5">
               <span class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span></span>
-              <span class="inline-flex items-center gap-2 text-xs text-bg/70">
-                <svg class="h-3.5 w-3.5 text-peach-soft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+              <span class="inline-flex items-center gap-2 text-xs text-white/70">
+                <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3z"/><path stroke-linecap="round" stroke-linejoin="round" d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
                 AI Voice Agent — Live Call
               </span>
-              <span class="ml-auto inline-flex items-center gap-1.5 font-mono text-[11px] text-bg/60">
-                <svg class="h-3.5 w-3.5 text-peach-soft" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4a1 1 0 0 0 1 1h3l4 4V5L7 9H4a1 1 0 0 0-1 1z"/><path d="M16 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span class="ml-auto inline-flex items-center gap-1.5 font-mono text-[11px] text-white/50">
+                <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4a1 1 0 0 0 1 1h3l4 4V5L7 9H4a1 1 0 0 0-1 1z"/><path d="M16 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 sound on
               </span>
             </div>
-            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-indigo-deep">
+            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-navy-deep">
               <video id="video-voice" class="block w-full" style="aspect-ratio:960/449" preload="none" playsinline controls poster="ai-voice-agent-demo-poster.jpg">
                 <source src="ai-voice-agent-demo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <button type="button" data-target="video-voice" aria-label="Play voice agent demo video"
-                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-indigo-deep/70 via-indigo-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach/70 ring-inset">
-                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full text-ink shadow-peach transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95" style="background:var(--peach-grad)">
-                  <span class="absolute inset-0 rounded-full opacity-60 animate-ping" style="background:var(--peach-grad)"></span>
+                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember/70 ring-inset">
+                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full bg-ember text-white shadow-ember transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95">
+                  <span class="absolute inset-0 rounded-full bg-ember opacity-50 animate-ping"></span>
                   <svg class="relative h-7 w-7 translate-x-[2px]" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.78-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg>
                 </span>
-                <span class="absolute bottom-5 left-5 right-5 flex items-center justify-between text-left">
+                <span class="absolute bottom-5 left-5 right-5 hidden sm:flex items-center justify-between text-left">
                   <span>
-                    <span class="block font-display text-base sm:text-lg font-semibold text-bg">Play the voice demo</span>
-                    <span class="block text-xs text-bg/70">A live call with our dental-reception agent — turn your sound on.</span>
+                    <span class="block font-display text-base sm:text-lg font-bold text-white">Play the voice demo</span>
+                    <span class="block text-xs text-white/60">A live call with a dental-reception agent — turn your sound on.</span>
                   </span>
-                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-indigo-deep/50 px-3 py-1 font-mono text-xs text-bg/80 backdrop-blur-sm">4:03</span>
+                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-navy-deep/50 px-3 py-1 font-mono text-xs text-white/80 backdrop-blur-sm">4:03</span>
                 </span>
               </button>
             </div>
           </div>
           <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-xs">
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Books &amp; reschedules appointments</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Natural, interruptible speech</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Inbound &amp; outbound calls</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Web &amp; phone deployment</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Books &amp; reschedules appointments</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Natural, interruptible speech</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Inbound &amp; outbound calls</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Web &amp; phone deployment</span>
           </div>
         </div>
 
         <!-- COD RTO panel -->
-        <div class="reveal mt-12 hidden" id="panel-rto" role="tabpanel" aria-labelledby="tab-rto" data-panel="rto">
+        <div class="reveal zoom mt-12 hidden" id="panel-rto" role="tabpanel" aria-labelledby="tab-rto" data-panel="rto">
           <div class="group relative rounded-4xl border border-white/[0.1] bg-white/[0.04] p-2 sm:p-3 shadow-lift">
             <div class="flex items-center gap-3 px-3 sm:px-4 py-2.5">
               <span class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span></span>
-              <span class="inline-flex items-center gap-2 text-xs text-bg/70">
-                <svg class="h-3.5 w-3.5 text-peach-soft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5h11v8H3zM14 10.5h3.6l3.4 3.2v1.8H14zM7 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6zM17.5 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z"/></svg>
+              <span class="inline-flex items-center gap-2 text-xs text-white/70">
+                <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5h11v8H3zM14 10.5h3.6l3.4 3.2v1.8H14zM7 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6zM17.5 18.5a1.8 1.8 0 1 0 0-3.6 1.8 1.8 0 0 0 0 3.6z"/></svg>
                 COD RTO Recovery — Outbound Confirmation Call
               </span>
-              <span class="ml-auto inline-flex items-center gap-1.5 font-mono text-[11px] text-bg/60">
-                <svg class="h-3.5 w-3.5 text-peach-soft" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4a1 1 0 0 0 1 1h3l4 4V5L7 9H4a1 1 0 0 0-1 1z"/><path d="M16 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span class="ml-auto inline-flex items-center gap-1.5 font-mono text-[11px] text-white/50">
+                <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="currentColor"><path d="M3 10v4a1 1 0 0 0 1 1h3l4 4V5L7 9H4a1 1 0 0 0-1 1z"/><path d="M16 8.5a4 4 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
                 sound on
               </span>
             </div>
-            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-indigo-deep">
+            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-navy-deep">
               <video id="video-rto" class="block w-full" style="aspect-ratio:16/9" preload="none" playsinline controls poster="reduce-rto-demo-poster.jpg">
                 <source src="reduce-rto-demo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <button type="button" data-target="video-rto" aria-label="Play COD RTO recovery demo video"
-                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-indigo-deep/70 via-indigo-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach/70 ring-inset">
-                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full text-ink shadow-peach transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95" style="background:var(--peach-grad)">
-                  <span class="absolute inset-0 rounded-full opacity-60 animate-ping" style="background:var(--peach-grad)"></span>
+                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember/70 ring-inset">
+                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full bg-ember text-white shadow-ember transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95">
+                  <span class="absolute inset-0 rounded-full bg-ember opacity-50 animate-ping"></span>
                   <svg class="relative h-7 w-7 translate-x-[2px]" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.78-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg>
                 </span>
-                <span class="absolute bottom-5 left-5 right-5 flex items-center justify-between text-left">
+                <span class="absolute bottom-5 left-5 right-5 hidden sm:flex items-center justify-between text-left">
                   <span>
-                    <span class="block font-display text-base sm:text-lg font-semibold text-bg">Play the RTO recovery demo</span>
-                    <span class="block text-xs text-bg/70">A voice agent confirming a COD order before dispatch — turn your sound on.</span>
+                    <span class="block font-display text-base sm:text-lg font-bold text-white">Play the RTO recovery demo</span>
+                    <span class="block text-xs text-white/60">A voice agent confirming a COD order before dispatch — turn your sound on.</span>
                   </span>
-                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-indigo-deep/50 px-3 py-1 font-mono text-xs text-bg/80 backdrop-blur-sm">5:00</span>
+                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-navy-deep/50 px-3 py-1 font-mono text-xs text-white/80 backdrop-blur-sm">5:00</span>
                 </span>
               </button>
             </div>
           </div>
           <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-xs">
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Confirms COD orders before dispatch</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Cuts return-to-origin losses</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Flags fake &amp; risky orders</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Hindi · automated outbound calls</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Confirms COD orders before dispatch</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Cuts return-to-origin losses</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Flags fake &amp; risky orders</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Hindi · automated outbound calls</span>
           </div>
         </div>
 
         <!-- Real Estate CRM panel -->
-        <div class="reveal mt-12 hidden" id="panel-crm" role="tabpanel" aria-labelledby="tab-crm" data-panel="crm">
+        <div class="reveal zoom mt-12 hidden" id="panel-crm" role="tabpanel" aria-labelledby="tab-crm" data-panel="crm">
           <div class="group relative rounded-4xl border border-white/[0.1] bg-white/[0.04] p-2 sm:p-3 shadow-lift">
             <div class="flex items-center gap-3 px-3 sm:px-4 py-2.5">
               <span class="flex gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span><span class="h-2.5 w-2.5 rounded-full bg-white/15"></span></span>
-              <span class="inline-flex items-center gap-2 text-xs text-bg/70">
-                <svg class="h-3.5 w-3.5 text-peach-soft" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20.5V9l6-4 6 4v11.5M15 20.5V11l6 4v5.5M2 20.5h20M7 12h1.5M7 15.5h1.5"/></svg>
+              <span class="inline-flex items-center gap-2 text-xs text-white/70">
+                <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20.5V9l6-4 6 4v11.5M15 20.5V11l6 4v5.5M2 20.5h20M7 12h1.5M7 15.5h1.5"/></svg>
                 Real Estate Sales CRM — Lead-to-Deal Dashboard
               </span>
-              <span class="ml-auto hidden sm:inline-flex items-center gap-1.5 font-mono text-[11px] text-bg/60"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span> recorded walkthrough</span>
+              <span class="ml-auto hidden sm:inline-flex items-center gap-1.5 font-mono text-[11px] text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span> recorded walkthrough</span>
             </div>
-            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-indigo-deep">
+            <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-navy-deep">
               <video id="video-crm" class="block w-full" style="aspect-ratio:16/9" preload="none" playsinline controls poster="real-estate-crm-demo-poster.jpg">
                 <source src="real-estate-crm-demo.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <button type="button" data-target="video-crm" aria-label="Play real estate CRM demo video"
-                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-indigo-deep/70 via-indigo-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-peach/70 ring-inset">
-                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full text-ink shadow-peach transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95" style="background:var(--peach-grad)">
-                  <span class="absolute inset-0 rounded-full opacity-60 animate-ping" style="background:var(--peach-grad)"></span>
+                      class="demo-play absolute inset-0 grid place-items-center bg-gradient-to-t from-navy-deep/70 via-navy-deep/10 to-transparent transition-opacity duration-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ember/70 ring-inset">
+                <span class="relative grid h-[72px] w-[72px] sm:h-20 sm:w-20 place-items-center rounded-full bg-ember text-white shadow-ember transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105 active:scale-95">
+                  <span class="absolute inset-0 rounded-full bg-ember opacity-50 animate-ping"></span>
                   <svg class="relative h-7 w-7 translate-x-[2px]" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.78-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14z"/></svg>
                 </span>
-                <span class="absolute bottom-5 left-5 right-5 flex items-center justify-between text-left">
+                <span class="absolute bottom-5 left-5 right-5 hidden sm:flex items-center justify-between text-left">
                   <span>
-                    <span class="block font-display text-base sm:text-lg font-semibold text-bg">Play the real estate CRM demo</span>
-                    <span class="block text-xs text-bg/70">A live lead-to-deal CRM for property sales — enquiry to booking in one place.</span>
+                    <span class="block font-display text-base sm:text-lg font-bold text-white">Play the real estate CRM demo</span>
+                    <span class="block text-xs text-white/60">A live lead-to-deal CRM for property sales — enquiry to booking in one place.</span>
                   </span>
-                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-indigo-deep/50 px-3 py-1 font-mono text-xs text-bg/80 backdrop-blur-sm">4:15</span>
+                  <span class="hidden sm:inline-flex items-center rounded-full border border-white/15 bg-navy-deep/50 px-3 py-1 font-mono text-xs text-white/80 backdrop-blur-sm">4:15</span>
                 </span>
               </button>
             </div>
           </div>
           <div class="mt-6 flex flex-wrap items-center justify-center gap-2.5 text-xs">
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Captures leads from 99acres, Housing &amp; more</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Enquiry → site visit → booking pipeline</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Rescues cold leads automatically</span>
-            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-bg/70">Real-time response &amp; revenue tracking</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ FEATURES ============ -->
-    <section id="features" class="py-24 sm:py-32">
-      <div class="mx-auto max-w-7xl px-5 sm:px-8">
-        <div class="reveal max-w-2xl mx-auto text-center">
-          <p class="eyebrow text-xs text-peach-ink mb-4">Everything included</p>
-          <h2 class="font-display text-3xl sm:text-[2.9rem] font-semibold tracking-[-0.02em] leading-[1.1] text-ink">
-            Built around <span class="accent">how you already work</span>
-          </h2>
-          <p class="mt-5 text-muted leading-[1.75] text-lg">You don't change your tools or your process. We fit the automation around them — and you keep your hands on the wheel.</p>
-        </div>
-
-        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          <div class="reveal card rounded-3xl border border-line bg-paper p-6 shadow-soft">
-            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-peach/30 mb-4"><svg class="h-5 w-5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-            <h3 class="font-display text-lg font-semibold text-ink">Repetitive tasks, gone</h3>
-            <p class="mt-2 text-[15px] text-muted leading-[1.7]">The manual ops you dread get rebuilt as quiet, self-running pipelines.</p>
-          </div>
-          <div class="reveal card rounded-3xl border border-line bg-paper p-6 shadow-soft" style="transition-delay:.06s">
-            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-peach/30 mb-4"><svg class="h-5 w-5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-6h13M9 11 4 7m5 4-5 4m13-9a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
-            <h3 class="font-display text-lg font-semibold text-ink">Trained on your business</h3>
-            <p class="mt-2 text-[15px] text-muted leading-[1.7]">Agents that answer the way you would — your prices, your tone, your rules.</p>
-          </div>
-          <div class="reveal card rounded-3xl border border-line bg-paper p-6 shadow-soft" style="transition-delay:.12s">
-            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-peach/30 mb-4"><svg class="h-5 w-5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M9.5 3A6.5 6.5 0 003 9.5c0 1.6.6 3 1.5 4.2L3 21l3-1.5A6.5 6.5 0 1014.5 3h-5z"/></svg></div>
-            <h3 class="font-display text-lg font-semibold text-ink">Replies in seconds, 24/7</h3>
-            <p class="mt-2 text-[15px] text-muted leading-[1.7]">Chat and voice agents that pick up every message, day or night.</p>
-          </div>
-          <div class="reveal card rounded-3xl border border-line bg-paper p-6 shadow-soft" style="transition-delay:.0s">
-            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-peach/30 mb-4"><svg class="h-5 w-5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M16 8a6 6 0 01-6 6m6-6a6 6 0 00-6-6m6 6H4m6 6a6 6 0 006 6m-6-6v8m0-20v4"/></svg></div>
-            <h3 class="font-display text-lg font-semibold text-ink">More booked work</h3>
-            <p class="mt-2 text-[15px] text-muted leading-[1.7]">Outreach, lead follow-up, and reminders that turn enquiries into jobs.</p>
-          </div>
-          <div class="reveal card rounded-3xl border border-line bg-paper p-6 shadow-soft" style="transition-delay:.06s">
-            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-peach/30 mb-4"><svg class="h-5 w-5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 14l3-3 3 3 5-6"/></svg></div>
-            <h3 class="font-display text-lg font-semibold text-ink">You can see it working</h3>
-            <p class="mt-2 text-[15px] text-muted leading-[1.7]">Plain numbers on what's been handled and the hours it gave you back.</p>
-          </div>
-          <div class="reveal card rounded-3xl border border-line bg-paper p-6 shadow-soft" style="transition-delay:.12s">
-            <div class="icon-chip grid h-11 w-11 place-items-center rounded-xl border border-peach/30 mb-4"><svg class="h-5 w-5 text-peach-deep" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7a2 2 0 012-2h12a2 2 0 012 2M4 7v10a2 2 0 002 2h12a2 2 0 002-2V7M4 7l8 6 8-6"/></svg></div>
-            <h3 class="font-display text-lg font-semibold text-ink">Fits your stack</h3>
-            <p class="mt-2 text-[15px] text-muted leading-[1.7]">Wires into the tools you already pay for — no rip-and-replace.</p>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Captures leads from 99acres, Housing &amp; more</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Enquiry → site visit → booking pipeline</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Rescues cold leads automatically</span>
+            <span class="rounded-full border border-white/[0.1] bg-white/[0.05] px-3.5 py-1.5 text-white/60">Real-time response &amp; revenue tracking</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ PROCESS ============ -->
-    <section id="process" class="py-24 sm:py-32 relative bg-cream/40 border-y border-line">
+    <section id="process" class="py-24 sm:py-32">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
-        <div class="reveal max-w-2xl mx-auto text-center">
-          <p class="eyebrow text-xs text-peach-ink mb-4">How it goes</p>
-          <h2 class="font-display text-3xl sm:text-[2.9rem] font-semibold tracking-[-0.02em] leading-[1.1] text-ink">
-            Live in <span class="accent">weeks, not quarters</span>
+        <div class="reveal from-left max-w-2xl">
+          <p class="eyebrow text-[11px] text-ember mb-4 flex items-center gap-2"><span class="h-px w-6 bg-ember/50"></span> How it goes</p>
+          <h2 class="font-display text-3xl sm:text-[2.8rem] font-bold tracking-[-0.025em] leading-[1.08] text-ink">
+            Live in weeks, not quarters.
           </h2>
-          <p class="mt-5 text-muted leading-[1.75] text-lg">Four steps from the first call to a working system. You're involved at the points that matter and left alone the rest of the time.</p>
+          <p class="mt-5 text-muted leading-[1.75] text-lg">Four steps from the first call to a working system. You're involved at the points that matter, and left alone the rest of the time.</p>
         </div>
 
-        <div class="mt-16 relative">
-          <div class="hidden lg:block absolute top-9 left-[12%] right-[12%] h-px bg-gradient-to-r from-transparent via-peach/50 to-transparent"></div>
-          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div class="reveal text-center sm:text-left">
-              <div class="mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-line bg-paper shadow-soft relative z-10">
-                <span class="font-mono text-xl font-semibold text-peach-ink">01</span>
-              </div>
-              <h3 class="font-display text-lg font-semibold mt-5 text-ink">Discover</h3>
-              <p class="mt-2 text-[15px] text-muted leading-[1.7]">A free call to walk through your week and spot where the time really goes.</p>
-            </div>
-            <div class="reveal text-center sm:text-left" style="transition-delay:.08s">
-              <div class="mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-line bg-paper shadow-soft relative z-10">
-                <span class="font-mono text-xl font-semibold text-peach-ink">02</span>
-              </div>
-              <h3 class="font-display text-lg font-semibold mt-5 text-ink">Map</h3>
-              <p class="mt-2 text-[15px] text-muted leading-[1.7]">We design the workflows and agents, then agree on scope and what "done" looks like.</p>
-            </div>
-            <div class="reveal text-center sm:text-left" style="transition-delay:.16s">
-              <div class="mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-line bg-paper shadow-soft relative z-10">
-                <span class="font-mono text-xl font-semibold text-peach-ink">03</span>
-              </div>
-              <h3 class="font-display text-lg font-semibold mt-5 text-ink">Build</h3>
-              <p class="mt-2 text-[15px] text-muted leading-[1.7]">We build, test, and switch it on inside your stack — with you checking each step.</p>
-            </div>
-            <div class="reveal text-center sm:text-left" style="transition-delay:.24s">
-              <div class="mx-auto sm:mx-0 grid h-[72px] w-[72px] place-items-center rounded-2xl border border-line bg-paper shadow-soft relative z-10">
-                <span class="font-mono text-xl font-semibold text-peach-ink">04</span>
-              </div>
-              <h3 class="font-display text-lg font-semibold mt-5 text-ink">Tune</h3>
-              <p class="mt-2 text-[15px] text-muted leading-[1.7]">We watch it run, sharpen the rough edges, and grow it as the results stack up.</p>
-            </div>
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="reveal card rounded-3xl border border-ink/[0.08] bg-paper p-7 shadow-soft">
+            <p class="font-mono text-xs text-ember font-semibold">01</p>
+            <h3 class="font-display text-lg font-bold mt-4 text-ink">Discover</h3>
+            <p class="mt-2 text-[14.5px] text-muted leading-[1.7]">A free call to walk through your week and spot where the time really goes. No pitch — just the map.</p>
+          </div>
+          <div class="reveal card rounded-3xl border border-ink/[0.08] bg-paper p-7 shadow-soft" style="transition-delay:.07s">
+            <p class="font-mono text-xs text-ember font-semibold">02</p>
+            <h3 class="font-display text-lg font-bold mt-4 text-ink">Map</h3>
+            <p class="mt-2 text-[14.5px] text-muted leading-[1.7]">You get a prioritised plan: what to hand off first, what it costs, and what "done" looks like — before anything is built.</p>
+          </div>
+          <div class="reveal card rounded-3xl border border-ink/[0.08] bg-paper p-7 shadow-soft" style="transition-delay:.14s">
+            <p class="font-mono text-xs text-ember font-semibold">03</p>
+            <h3 class="font-display text-lg font-bold mt-4 text-ink">Build</h3>
+            <p class="mt-2 text-[14.5px] text-muted leading-[1.7]">We build and test inside your existing tools, with you approving each step. Nothing goes live without your sign-off.</p>
+          </div>
+          <div class="reveal card rounded-3xl border border-ink/[0.08] bg-paper p-7 shadow-soft" style="transition-delay:.21s">
+            <p class="font-mono text-xs text-ember font-semibold">04</p>
+            <h3 class="font-display text-lg font-bold mt-4 text-ink">Tune</h3>
+            <p class="mt-2 text-[14.5px] text-muted leading-[1.7]">We watch it run, sharpen the rough edges, and grow it as the results stack up. If something breaks, you hear first.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ============ RESULTS / REVIEWS ============ -->
-    <section id="reviews" class="py-24 sm:py-32 relative overflow-hidden">
-      <div class="absolute right-0 top-1/4 h-[420px] w-[420px] rounded-full blur-[150px] opacity-40 -z-10" style="background:radial-gradient(circle,rgba(244,198,168,0.6),transparent 70%)"></div>
+    <section id="reviews" class="py-24 sm:py-32 bg-paper/60 border-y border-line">
       <div class="mx-auto max-w-7xl px-5 sm:px-8">
-        <div class="reveal max-w-2xl mx-auto text-center">
-          <p class="eyebrow text-xs text-peach-ink mb-4">Proof, not promises</p>
-          <h2 class="font-display text-3xl sm:text-[2.9rem] font-semibold tracking-[-0.02em] leading-[1.1] text-ink">
-            What it looks like <span class="accent">when it's working</span>
+        <div class="reveal from-left max-w-2xl">
+          <p class="eyebrow text-[11px] text-ember mb-4 flex items-center gap-2"><span class="h-px w-6 bg-ember/50"></span> Proof, not promises</p>
+          <h2 class="font-display text-3xl sm:text-[2.8rem] font-bold tracking-[-0.025em] leading-[1.08] text-ink">
+            What it looks like when<br />the busywork stops being yours.
           </h2>
-          <p class="mt-5 text-muted leading-[1.75] text-lg">A small shop with real names behind it. Here's what people say after the busywork stops being theirs.</p>
+          <p class="mt-5 text-muted leading-[1.75] text-lg">A small shop with real names behind it. Here's what people say after the week stops leaking.</p>
         </div>
 
-        <div class="reveal mt-14 grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="rounded-3xl border border-line bg-paper p-6 text-center shadow-soft">
-            <p class="font-display text-4xl font-semibold text-peach-ink"><span class="count" data-to="8">0</span>+</p>
-            <p class="text-xs text-muted mt-1.5">Automations shipped</p>
+        <div class="reveal zoom mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="rounded-3xl border border-ink/[0.08] bg-paper p-6 shadow-soft">
+            <p class="font-display text-4xl font-bold tracking-[-0.02em] text-ink"><span class="count" data-to="8">0</span>+</p>
+            <p class="text-xs text-muted mt-2">Automations shipped</p>
           </div>
-          <div class="rounded-3xl border border-line bg-paper p-6 text-center shadow-soft">
-            <p class="font-display text-4xl font-semibold text-peach-ink"><span class="count" data-to="100">0</span>%</p>
-            <p class="text-xs text-muted mt-1.5">5★ client reviews</p>
+          <div class="rounded-3xl border border-ink/[0.08] bg-paper p-6 shadow-soft">
+            <p class="font-display text-4xl font-bold tracking-[-0.02em] text-ink"><span class="count" data-to="100">0</span>%</p>
+            <p class="text-xs text-muted mt-2">5★ client reviews</p>
           </div>
-          <div class="rounded-3xl border border-line bg-paper p-6 text-center shadow-soft">
-            <p class="font-display text-4xl font-semibold text-peach-ink"><span class="count" data-to="30">0</span>+</p>
-            <p class="text-xs text-muted mt-1.5">Hours saved / week</p>
+          <div class="rounded-3xl border border-ink/[0.08] bg-paper p-6 shadow-soft">
+            <p class="font-display text-4xl font-bold tracking-[-0.02em] text-ink"><span class="count" data-to="30">0</span>+</p>
+            <p class="text-xs text-muted mt-2">Hours saved / week</p>
           </div>
-          <div class="rounded-3xl border border-line bg-paper p-6 text-center shadow-soft">
-            <p class="font-display text-4xl font-semibold text-peach-ink">24/7</p>
-            <p class="text-xs text-muted mt-1.5">Agents on the job</p>
+          <div class="rounded-3xl border border-ink/[0.08] bg-paper p-6 shadow-soft">
+            <p class="font-display text-4xl font-bold tracking-[-0.02em] text-ink">24/7</p>
+            <p class="text-xs text-muted mt-2">Agents on the job</p>
           </div>
         </div>
 
         <div class="mt-6 grid md:grid-cols-3 gap-5">
-          <figure class="reveal card rounded-3xl border border-line bg-paper p-7 flex flex-col shadow-soft">
+          <figure class="reveal card rounded-3xl border border-ink/[0.08] bg-paper p-7 flex flex-col shadow-soft">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <span class="grid h-11 w-11 place-items-center rounded-full text-ink font-semibold text-sm" style="background:var(--peach-grad)">N</span>
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-navy text-white font-semibold text-sm">N</span>
                 <div>
                   <figcaption class="font-semibold leading-tight text-ink">neelusa8</figcaption>
                   <p class="text-xs text-muted">🇺🇸 United States</p>
                 </div>
               </div>
-              <span class="text-peach-deep text-sm tracking-tight">★★★★★</span>
+              <span class="text-ember text-sm tracking-tight">★★★★★</span>
             </div>
             <blockquote class="mt-5 text-[15px] leading-[1.7] text-ink/85 flex-1">
               "Mohit did great work for my AI receptionist and always available to speak with me. He did excellent work for my project. I would recommend him for any future work."
             </blockquote>
             <div class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-xs text-muted">
-              <svg class="h-3.5 w-3.5 text-peach-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
               Verified client · AI Receptionist
             </div>
           </figure>
 
-          <figure class="reveal card rounded-3xl border border-line bg-paper p-7 flex flex-col shadow-soft" style="transition-delay:.08s">
+          <figure class="reveal card rounded-3xl border border-ink/[0.08] bg-paper p-7 flex flex-col shadow-soft" style="transition-delay:.08s">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <span class="grid h-11 w-11 place-items-center rounded-full text-ink font-semibold text-sm" style="background:var(--peach-grad)">B</span>
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-navy text-white font-semibold text-sm">B</span>
                 <div>
                   <figcaption class="font-semibold leading-tight text-ink">Bhargav</figcaption>
                   <p class="text-xs text-muted">🇮🇳 India</p>
                 </div>
               </div>
-              <span class="text-peach-deep text-sm tracking-tight">★★★★★</span>
+              <span class="text-ember text-sm tracking-tight">★★★★★</span>
             </div>
             <blockquote class="mt-5 text-[15px] leading-[1.7] text-ink/85 flex-1">
               "axentraX built us a complete automated email campaign targeting Indian restaurants for special occasions — Valentine's, festivals and events. The sequences run on their own and the booking response has been fantastic. Genuinely happy with the work."
             </blockquote>
             <div class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-xs text-muted">
-              <svg class="h-3.5 w-3.5 text-peach-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
               Verified client · Email Campaigns
             </div>
           </figure>
 
-          <figure class="reveal card rounded-3xl border border-line bg-paper p-7 flex flex-col shadow-soft" style="transition-delay:.16s">
+          <figure class="reveal card rounded-3xl border border-ink/[0.08] bg-paper p-7 flex flex-col shadow-soft" style="transition-delay:.16s">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <span class="grid h-11 w-11 place-items-center rounded-full text-ink font-semibold text-sm" style="background:var(--peach-grad)">S</span>
+                <span class="grid h-11 w-11 place-items-center rounded-full bg-navy text-white font-semibold text-sm">S</span>
                 <div>
                   <figcaption class="font-semibold leading-tight text-ink">Sarah Reyes</figcaption>
                   <p class="text-xs text-muted">🇺🇸 United States</p>
                 </div>
               </div>
-              <span class="text-peach-deep text-sm tracking-tight">★★★★★</span>
+              <span class="text-ember text-sm tracking-tight">★★★★★</span>
             </div>
             <blockquote class="mt-5 text-[15px] leading-[1.7] text-ink/85 flex-1">
               "They automated our entire lead-routing flow in under three weeks. We're saving 30+ hours a week and nothing slips through the cracks anymore. Responsive, sharp, and the results speak for themselves."
             </blockquote>
             <div class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-xs text-muted">
-              <svg class="h-3.5 w-3.5 text-peach-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+              <svg class="h-3.5 w-3.5 text-ember" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
               Verified client · Workflow Automation
             </div>
           </figure>
@@ -879,48 +956,104 @@
       </div>
     </section>
 
-    <!-- ============ CONTACT ============ -->
-    <section id="contact" class="py-24 sm:py-32 relative overflow-hidden">
-      <div class="absolute left-1/2 top-10 -translate-x-1/2 h-[420px] w-[760px] rounded-full blur-[150px] opacity-50 -z-10" style="background:radial-gradient(circle,rgba(244,198,168,0.6),transparent 70%)"></div>
-      <div class="mx-auto max-w-6xl px-5 sm:px-8">
-        <div class="overflow-hidden rounded-4xl border border-line bg-paper grid lg:grid-cols-[0.95fr_1.05fr] shadow-lift">
+    <!-- ============ FAQ ============ -->
+    <section id="faq" class="py-24 sm:py-32">
+      <div class="mx-auto max-w-4xl px-5 sm:px-8">
+        <div class="reveal from-left max-w-2xl">
+          <p class="eyebrow text-[11px] text-ember mb-4 flex items-center gap-2"><span class="h-px w-6 bg-ember/50"></span> Fair questions</p>
+          <h2 class="font-display text-3xl sm:text-[2.8rem] font-bold tracking-[-0.025em] leading-[1.08] text-ink">
+            The things you're probably<br />already wondering.
+          </h2>
+        </div>
 
-          <div class="reveal relative p-8 sm:p-12 flex flex-col bg-ink text-bg">
-            <div class="absolute inset-0 dotgrid-light opacity-[0.06]"></div>
+        <div class="mt-12 divide-y divide-line border-y border-line">
+          <div class="faq-item">
+            <button type="button" class="faq-btn w-full flex items-center justify-between gap-6 py-6 text-left" aria-expanded="false">
+              <span class="faq-q font-display text-lg sm:text-xl font-bold text-ink">Will it sound robotic to my customers?</span>
+              <span class="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/[0.12] text-ink"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-panel"><div><p class="pb-7 pr-4 sm:pr-16 text-[15px] leading-[1.75] text-muted">Listen to the demos above — those are real conversations, not scripts. Everything is trained on your tone, your prices, and your rules, and nothing goes live until you've heard it and approved it. If a conversation goes somewhere it shouldn't, it hands over to you instead of guessing.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-btn w-full flex items-center justify-between gap-6 py-6 text-left" aria-expanded="false">
+              <span class="faq-q font-display text-lg sm:text-xl font-bold text-ink">I'm not technical. How much of this lands on me?</span>
+              <span class="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/[0.12] text-ink"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-panel"><div><p class="pb-7 pr-4 sm:pr-16 text-[15px] leading-[1.75] text-muted">One call and access to the tools you already use — that's your side of it. You never touch the plumbing. Your involvement is saying "yes, that's how I'd answer that" a few times while we tune it.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-btn w-full flex items-center justify-between gap-6 py-6 text-left" aria-expanded="false">
+              <span class="faq-q font-display text-lg sm:text-xl font-bold text-ink">What if it gives someone a wrong answer?</span>
+              <span class="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/[0.12] text-ink"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-panel"><div><p class="pb-7 pr-4 sm:pr-16 text-[15px] leading-[1.75] text-muted">It only answers what it's been taught, and anything outside that gets passed to you — with the full context, so you're not starting cold. You also see a plain record of everything handled, so nothing happens behind your back. If something breaks, you hear about it before your customer does.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-btn w-full flex items-center justify-between gap-6 py-6 text-left" aria-expanded="false">
+              <span class="faq-q font-display text-lg sm:text-xl font-bold text-ink">How long until something is actually running?</span>
+              <span class="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/[0.12] text-ink"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-panel"><div><p class="pb-7 pr-4 sm:pr-16 text-[15px] leading-[1.75] text-muted">The first workflow is usually live in two to three weeks. We start with the one that buys back the most time, prove it works, then grow from there — not a six-month project with nothing to show until the end.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-btn w-full flex items-center justify-between gap-6 py-6 text-left" aria-expanded="false">
+              <span class="faq-q font-display text-lg sm:text-xl font-bold text-ink">What does it cost?</span>
+              <span class="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/[0.12] text-ink"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-panel"><div><p class="pb-7 pr-4 sm:pr-16 text-[15px] leading-[1.75] text-muted">It depends on what you hand off, so we scope it after the first call — and you see the full plan and price before anything is built. No retainers you don't understand, no surprise line items. If the numbers don't clearly work in your favour, we'll say so.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-btn w-full flex items-center justify-between gap-6 py-6 text-left" aria-expanded="false">
+              <span class="faq-q font-display text-lg sm:text-xl font-bold text-ink">What happens to my data and my accounts?</span>
+              <span class="faq-icon grid h-9 w-9 shrink-0 place-items-center rounded-full border border-ink/[0.12] text-ink"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg></span>
+            </button>
+            <div class="faq-panel"><div><p class="pb-7 pr-4 sm:pr-16 text-[15px] leading-[1.75] text-muted">Everything runs inside your own accounts and tools — you keep ownership and access to all of it. Nothing is shared, resold, or moved somewhere you can't see. If we part ways, the systems stay yours.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="pb-24 sm:pb-32 pt-4">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8">
+        <div class="overflow-hidden rounded-4xl border border-ink/[0.08] bg-paper grid lg:grid-cols-[0.95fr_1.05fr] shadow-lift">
+
+          <div class="reveal from-left relative p-8 sm:p-12 flex flex-col bg-navy-deep text-white">
+            <div class="absolute right-[-30%] top-[-30%] h-[400px] w-[400px] rounded-full blur-[120px] opacity-25" style="background:radial-gradient(circle, rgba(227,84,29,0.6), transparent 70%)" aria-hidden="true"></div>
             <div class="relative">
-              <p class="eyebrow text-xs text-peach-soft mb-5">Free strategy call</p>
-              <h2 class="font-display text-3xl sm:text-[2.5rem] leading-[1.1] font-semibold tracking-[-0.02em] text-bg">
-                Tell us where the time goes. We'll show you <span class="accent text-peach-soft">what to automate first.</span>
+              <p class="eyebrow text-[11px] text-ember mb-5">Free strategy call</p>
+              <h2 class="font-display text-3xl sm:text-[2.4rem] leading-[1.1] font-bold tracking-[-0.025em] text-white">
+                Tell us where the week goes. We'll show you what to hand off first.
               </h2>
-              <p class="mt-5 text-bg/70 leading-[1.75] max-w-md">Send a few details about your business. We'll look it over and come back with a tailored plan — no pitch, no pressure, no obligation.</p>
+              <p class="mt-5 text-white/60 leading-[1.75] max-w-md">Send a few details about your business. We'll look it over and come back with a tailored plan — no pitch, no pressure, no obligation.</p>
 
               <ul class="mt-8 space-y-4">
                 <li class="flex items-start gap-3 text-sm">
-                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full text-ink" style="background:var(--peach-grad)"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                  <span class="text-bg/75 leading-[1.6]"><span class="text-bg font-medium">A 30-minute call</span> with the person who'll actually build it</span>
+                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ember text-white"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                  <span class="text-white/70 leading-[1.6]"><span class="text-white font-medium">A 30-minute call</span> with the person who'll actually build it</span>
                 </li>
                 <li class="flex items-start gap-3 text-sm">
-                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full text-ink" style="background:var(--peach-grad)"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                  <span class="text-bg/75 leading-[1.6]"><span class="text-bg font-medium">A shortlist</span> of the changes that buy back the most time first</span>
+                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ember text-white"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                  <span class="text-white/70 leading-[1.6]"><span class="text-white font-medium">A shortlist</span> of the changes that buy back the most time first</span>
                 </li>
                 <li class="flex items-start gap-3 text-sm">
-                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full text-ink" style="background:var(--peach-grad)"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
-                  <span class="text-bg/75 leading-[1.6]"><span class="text-bg font-medium">Clear next steps</span> you can run with — with us or on your own</span>
+                  <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-ember text-white"><svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></span>
+                  <span class="text-white/70 leading-[1.6]"><span class="text-white font-medium">Clear next steps</span> you can run with — with us or on your own</span>
                 </li>
               </ul>
 
-              <div class="mt-auto pt-10 flex items-center gap-3 text-xs text-bg/70">
+              <div class="mt-auto pt-10 flex items-center gap-3 text-xs text-white/60">
                 <span class="flex -space-x-2">
-                  <span class="grid h-7 w-7 place-items-center rounded-full text-[10px] font-semibold text-ink ring-2 ring-ink" style="background:var(--peach-grad)">N</span>
-                  <span class="grid h-7 w-7 place-items-center rounded-full text-[10px] font-semibold text-ink ring-2 ring-ink" style="background:linear-gradient(135deg,#F4C6A8,#DA8458)">B</span>
-                  <span class="grid h-7 w-7 place-items-center rounded-full text-[10px] font-semibold text-ink ring-2 ring-ink" style="background:linear-gradient(135deg,#F7D9C4,#E69A73)">S</span>
+                  <span class="grid h-7 w-7 place-items-center rounded-full bg-ember text-[10px] font-semibold text-white ring-2 ring-navy-deep">N</span>
+                  <span class="grid h-7 w-7 place-items-center rounded-full bg-navy text-[10px] font-semibold text-white ring-2 ring-navy-deep">B</span>
+                  <span class="grid h-7 w-7 place-items-center rounded-full bg-white text-[10px] font-semibold text-navy-deep ring-2 ring-navy-deep">S</span>
                 </span>
                 Trusted by founders &amp; operators · Avg. reply under 2 hours
               </div>
             </div>
           </div>
 
-          <div class="reveal relative bg-paper p-8 sm:p-12" style="transition-delay:.08s">
+          <div class="reveal from-right relative bg-paper p-8 sm:p-12" style="transition-delay:.08s">
             <form id="consult-form" class="space-y-5" novalidate>
               <div class="grid sm:grid-cols-2 gap-5">
                 <div class="field">
@@ -978,12 +1111,12 @@
                   </select>
                 </div>
               </div>
-              <button type="submit" class="btn-peach w-full text-sm font-semibold rounded-xl px-6 py-3.5 mt-1">Book my free call →</button>
+              <button type="submit" class="btn-ember w-full text-sm font-semibold rounded-xl px-6 py-3.5 mt-1">Book my free call →</button>
               <p class="text-[11px] text-center text-muted/80">By submitting you agree to be contacted about your enquiry. We never share your details.</p>
 
               <div id="form-success" class="hidden text-center rounded-2xl border border-emerald-500/25 bg-emerald-500/[0.07] p-6">
-                <div class="mx-auto grid h-12 w-12 place-items-center rounded-full text-ink" style="background:var(--peach-grad)"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
-                <p class="mt-4 font-display text-lg font-semibold text-ink">Got it — your request is in.</p>
+                <div class="mx-auto grid h-12 w-12 place-items-center rounded-full bg-ember text-white"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+                <p class="mt-4 font-display text-lg font-bold text-ink">Got it — your request is in.</p>
                 <p class="mt-1.5 text-sm text-muted">We'll look over your details and reply within 2 hours.</p>
               </div>
             </form>
@@ -995,59 +1128,61 @@
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="bg-indigo-deep text-bg pt-16 pb-10">
+  <footer class="bg-navy-deep text-white pt-16 pb-10">
     <div class="mx-auto max-w-7xl px-5 sm:px-8">
       <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
           <a href="#top" class="inline-flex items-center" aria-label="axentraX home">
-            <img src="brand_assets/Logo-mark-warm.png" alt="axentraX" class="h-20 w-auto select-none" draggable="false" />
+            <span class="font-display text-2xl font-bold tracking-[-0.02em] text-white">axentra<span class="text-ember">X</span></span>
           </a>
-          <p class="mt-4 text-sm text-bg/65 leading-[1.7] max-w-xs">AI agents and automations for service businesses — answering leads, booking jobs, and handling the busywork so the work keeps moving without you.</p>
-          <p class="mt-5 font-mono text-[11px] tracking-[0.18em] text-peach-soft/80 uppercase">Answer · Book · Skip the busywork</p>
+          <p class="mt-4 text-sm text-white/60 leading-[1.7] max-w-xs">Leads answered, jobs booked, busywork handled — so the work keeps moving without you in the middle of it.</p>
+          <p class="mt-5 font-mono text-[11px] tracking-[0.18em] text-ember/80 uppercase">Answer · Book · Skip the busywork</p>
         </div>
         <div>
-          <p class="text-sm font-semibold mb-4 text-bg">Company</p>
-          <ul class="space-y-3 text-sm text-bg/65">
-            <li><a href="#services" class="hover:text-peach-soft transition-colors">Services</a></li>
-            <li><a href="#process" class="hover:text-peach-soft transition-colors">How it works</a></li>
-            <li><a href="#reviews" class="hover:text-peach-soft transition-colors">Results</a></li>
+          <p class="text-sm font-semibold mb-4 text-white">Explore</p>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li><a href="#problem" class="hover:text-ember transition-colors">The problem</a></li>
+            <li><a href="#shift" class="hover:text-ember transition-colors">What changes</a></li>
+            <li><a href="#process" class="hover:text-ember transition-colors">How it works</a></li>
+            <li><a href="#reviews" class="hover:text-ember transition-colors">Results</a></li>
           </ul>
         </div>
         <div>
-          <p class="text-sm font-semibold mb-4 text-bg">Solutions</p>
-          <ul class="space-y-3 text-sm text-bg/65">
-            <li><a href="#features" class="hover:text-peach-soft transition-colors">Workflow automation</a></li>
-            <li><a href="#features" class="hover:text-peach-soft transition-colors">AI agents</a></li>
-            <li><a href="#services" class="hover:text-peach-soft transition-colors">Strategy &amp; audit</a></li>
+          <p class="text-sm font-semibold mb-4 text-white">See it live</p>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li><a href="#demo" class="hover:text-ember transition-colors">WhatsApp automation</a></li>
+            <li><a href="#demo" class="hover:text-ember transition-colors">AI voice agent</a></li>
+            <li><a href="#demo" class="hover:text-ember transition-colors">COD RTO recovery</a></li>
+            <li><a href="#demo" class="hover:text-ember transition-colors">Real estate CRM</a></li>
           </ul>
         </div>
         <div>
-          <p class="text-sm font-semibold mb-4 text-bg">Get in touch</p>
-          <ul class="space-y-3 text-sm text-bg/65">
-            <li><a href="mailto:axentrax@gmail.com" class="group inline-flex items-center gap-2.5 hover:text-peach-soft transition-colors"><svg class="h-4 w-4 shrink-0 text-peach" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg><span class="break-all">axentrax@gmail.com</span></a></li>
-            <li><a href="mailto:mohitaiexpert09@gmail.com" class="group inline-flex items-center gap-2.5 hover:text-peach-soft transition-colors"><svg class="h-4 w-4 shrink-0 text-peach" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg><span class="break-all">mohitaiexpert09@gmail.com</span></a></li>
+          <p class="text-sm font-semibold mb-4 text-white">Get in touch</p>
+          <ul class="space-y-3 text-sm text-white/60">
+            <li><a href="mailto:axentrax@gmail.com" class="group inline-flex items-center gap-2.5 hover:text-ember transition-colors"><svg class="h-4 w-4 shrink-0 text-ember" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg><span class="break-all">axentrax@gmail.com</span></a></li>
+            <li><a href="mailto:mohitaiexpert09@gmail.com" class="group inline-flex items-center gap-2.5 hover:text-ember transition-colors"><svg class="h-4 w-4 shrink-0 text-ember" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l9 6 9-6M3 8v8a2 2 0 002 2h14a2 2 0 002-2V8M3 8l9-4 9 4"/></svg><span class="break-all">mohitaiexpert09@gmail.com</span></a></li>
             <li class="pt-1">
-              <span class="inline-flex items-center gap-2 mb-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-bg/45">
-                <svg class="h-4 w-4 text-peach" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
+              <span class="inline-flex items-center gap-2 mb-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-white/40">
+                <svg class="h-4 w-4 text-ember" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h2.5a1 1 0 01.95.68l1 3a1 1 0 01-.5 1.2L8 9a12 12 0 007 7l1.12-1.95a1 1 0 011.2-.5l3 1a1 1 0 01.68.95V19a2 2 0 01-2 2A16 16 0 013 5z"/></svg>
                 Call us
               </span>
               <ul class="space-y-2">
-                <li><a href="tel:+919839886348" class="group flex items-center gap-2.5 hover:text-peach-soft transition-colors"><span class="grid h-5 w-7 shrink-0 place-items-center rounded-md border border-white/10 bg-white/[0.05] font-mono text-[9px] font-semibold tracking-wider text-peach-soft/80">IN</span><span class="tabular-nums">+91 98398 86348</span></a></li>
-                <li><a href="tel:+14378898764" class="group flex items-center gap-2.5 hover:text-peach-soft transition-colors"><span class="grid h-5 w-7 shrink-0 place-items-center rounded-md border border-white/10 bg-white/[0.05] font-mono text-[9px] font-semibold tracking-wider text-peach-soft/80">CA</span><span class="tabular-nums">+1 437 889 8764</span></a></li>
-                <li><a href="tel:+14378898686" class="group flex items-center gap-2.5 hover:text-peach-soft transition-colors"><span class="grid h-5 w-7 shrink-0 place-items-center rounded-md border border-white/10 bg-white/[0.05] font-mono text-[9px] font-semibold tracking-wider text-peach-soft/80">CA</span><span class="tabular-nums">+1 437 889 8686</span></a></li>
+                <li><a href="tel:+919839886348" class="group flex items-center gap-2.5 hover:text-ember transition-colors"><span class="grid h-5 w-7 shrink-0 place-items-center rounded-md border border-white/10 bg-white/[0.05] font-mono text-[9px] font-semibold tracking-wider text-ember/80">IN</span><span class="tabular-nums">+91 98398 86348</span></a></li>
+                <li><a href="tel:+14378898764" class="group flex items-center gap-2.5 hover:text-ember transition-colors"><span class="grid h-5 w-7 shrink-0 place-items-center rounded-md border border-white/10 bg-white/[0.05] font-mono text-[9px] font-semibold tracking-wider text-ember/80">CA</span><span class="tabular-nums">+1 437 889 8764</span></a></li>
+                <li><a href="tel:+14378898686" class="group flex items-center gap-2.5 hover:text-ember transition-colors"><span class="grid h-5 w-7 shrink-0 place-items-center rounded-md border border-white/10 bg-white/[0.05] font-mono text-[9px] font-semibold tracking-wider text-ember/80">CA</span><span class="tabular-nums">+1 437 889 8686</span></a></li>
               </ul>
             </li>
           </ul>
           <div class="mt-5 flex gap-3">
-            <a href="https://www.linkedin.com/in/mohit-jha-automation/" target="_blank" rel="noopener" aria-label="LinkedIn" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.05] text-bg/70 hover:text-ink hover:bg-peach hover:border-peach transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V10.5H5.84v7.84h2.5zM7.09 9.36a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9zm11.25 8.98v-4.3c0-2.3-1.23-3.37-2.87-3.37a2.48 2.48 0 00-2.24 1.23v-1.06h-2.5v7.5h2.5v-4.15c0-1.1.21-2.16 1.57-2.16 1.34 0 1.36 1.25 1.36 2.23v4.08h2.68z"/></svg></a>
-            <a href="https://www.instagram.com/mohit_leadly.ai/" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.05] text-bg/70 hover:text-ink hover:bg-peach hover:border-peach transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07zm0 3.06a5.98 5.98 0 110 11.96 5.98 5.98 0 010-11.96zm0 1.8a4.18 4.18 0 100 8.36 4.18 4.18 0 000-8.36zm6.2-.95a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg></a>
-            <a href="https://www.facebook.com/profile.php?id=61590513666082" target="_blank" rel="noopener" aria-label="Facebook" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.05] text-bg/70 hover:text-ink hover:bg-peach hover:border-peach transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a>
+            <a href="https://www.linkedin.com/in/mohit-jha-automation/" target="_blank" rel="noopener" aria-label="LinkedIn" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.05] text-white/70 hover:text-white hover:bg-ember hover:border-ember transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14zM8.34 18.34V10.5H5.84v7.84h2.5zM7.09 9.36a1.45 1.45 0 100-2.9 1.45 1.45 0 000 2.9zm11.25 8.98v-4.3c0-2.3-1.23-3.37-2.87-3.37a2.48 2.48 0 00-2.24 1.23v-1.06h-2.5v7.5h2.5v-4.15c0-1.1.21-2.16 1.57-2.16 1.34 0 1.36 1.25 1.36 2.23v4.08h2.68z"/></svg></a>
+            <a href="https://www.instagram.com/mohit_leadly.ai/" target="_blank" rel="noopener" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.05] text-white/70 hover:text-white hover:bg-ember hover:border-ember transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.8c-3.15 0-3.5.01-4.74.07-1.14.05-1.76.24-2.17.4-.55.21-.94.47-1.35.88-.41.41-.67.8-.88 1.35-.16.41-.35 1.03-.4 2.17-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.05 1.14.24 1.76.4 2.17.21.55.47.94.88 1.35.41.41.8.67 1.35.88.41.16 1.03.35 2.17.4 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c1.14-.05 1.76-.24 2.17-.4.55-.21.94-.47 1.35-.88.41-.41.67-.8.88-1.35.16-.41.35-1.03.4-2.17.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.05-1.14-.24-1.76-.4-2.17a3.6 3.6 0 00-.88-1.35 3.6 3.6 0 00-1.35-.88c-.41-.16-1.03-.35-2.17-.4-1.24-.06-1.59-.07-4.74-.07zm0 3.06a5.98 5.98 0 110 11.96 5.98 5.98 0 010-11.96zm0 1.8a4.18 4.18 0 100 8.36 4.18 4.18 0 000-8.36zm6.2-.95a1.4 1.4 0 11-2.8 0 1.4 1.4 0 012.8 0z"/></svg></a>
+            <a href="https://www.facebook.com/profile.php?id=61590513666082" target="_blank" rel="noopener" aria-label="Facebook" class="grid h-9 w-9 place-items-center rounded-lg border border-white/10 bg-white/[0.05] text-white/70 hover:text-white hover:bg-ember hover:border-ember transition-colors"><svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.88h2.78l-.44 2.9h-2.34V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg></a>
           </div>
         </div>
       </div>
-      <div class="mt-12 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-bg/55">
+      <div class="mt-12 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
         <p>© 2026 axentraX. All rights reserved.</p>
-        <p class="flex gap-5"><a href="#" class="hover:text-peach-soft transition-colors">Privacy</a><a href="#" class="hover:text-peach-soft transition-colors">Terms</a></p>
+        <p class="flex gap-5"><a href="#" class="hover:text-ember transition-colors">Privacy</a><a href="#" class="hover:text-ember transition-colors">Terms</a></p>
       </div>
     </div>
   </footer>
@@ -1063,6 +1198,22 @@
       document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
     } else {
       document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+    }
+
+    // Hero ring parallax: the arc drifts down and fades slightly slower than the page scrolls
+    const arcWrap = document.querySelector('.arc-wrap');
+    if (arcWrap && !reduce) {
+      let arcTick = false;
+      const arcScroll = () => {
+        if (arcTick) return; arcTick = true;
+        requestAnimationFrame(() => {
+          const y = Math.min(window.scrollY, 1000);
+          arcWrap.style.transform = `translateY(${y * 0.22}px)`;
+          arcWrap.style.opacity = String(Math.max(0, 1 - y / 850));
+          arcTick = false;
+        });
+      };
+      window.addEventListener('scroll', arcScroll, { passive: true });
     }
 
     // Mobile menu
@@ -1101,16 +1252,24 @@
       });
     });
 
+    // FAQ accordion (one open at a time)
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach((item) => {
+      const btn = item.querySelector('.faq-btn');
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        faqItems.forEach((i) => { i.classList.remove('open'); i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { item.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+    });
+
     // Header condense on scroll
     const navBar = document.getElementById('nav-bar');
-    const topbar = document.getElementById('topbar');
     const onScroll = () => {
       const scrolled = window.scrollY > 24;
       navBar.classList.toggle('bg-paper/90', scrolled);
       navBar.classList.toggle('shadow-lift', scrolled);
-      navBar.classList.toggle('bg-paper/70', !scrolled);
-      topbar.style.height = scrolled ? '0px' : '';
-      topbar.style.opacity = scrolled ? '0' : '';
+      navBar.classList.toggle('bg-canvas/80', !scrolled);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
@@ -1135,16 +1294,34 @@
       document.querySelectorAll('.count').forEach((el) => co.observe(el));
     }
 
-    // Hero pointer parallax
-    const glow = document.getElementById('hero-glow');
-    const hero = document.getElementById('hero');
-    if (glow && hero && !reduce && window.matchMedia('(pointer:fine)').matches) {
-      hero.addEventListener('pointermove', (ev) => {
-        const r = hero.getBoundingClientRect();
-        const x = (ev.clientX - r.left) / r.width - 0.5;
-        const y = (ev.clientY - r.top) / r.height - 0.5;
-        glow.style.transform = `translate(calc(-50% + ${x * 36}px), ${y * 26}px)`;
-      });
+    // Cost calculator
+    const calcTeam = document.getElementById('calc-team');
+    const calcHours = document.getElementById('calc-hours');
+    const calcSalary = document.getElementById('calc-salary');
+    if (calcTeam && calcHours && calcSalary) {
+      const fmt = (n) => Math.round(n).toLocaleString('en-US');
+      const paintTrack = (el) => {
+        const p = ((el.value - el.min) / (el.max - el.min)) * 100;
+        el.style.background = `linear-gradient(to right, #E3541D 0%, #E3541D ${p}%, #E7E5DD ${p}%, #E7E5DD 100%)`;
+      };
+      const recalc = () => {
+        const team = Number(calcTeam.value);
+        const hours = Number(calcHours.value);
+        const salary = Number(calcSalary.value);
+        const hourly = (salary * 12) / 2080; // 40h week, 52 weeks
+        const yearHours = team * hours * 52;
+        const annual = yearHours * hourly;
+        document.getElementById('calc-team-val').textContent = String(team);
+        document.getElementById('calc-hours-val').textContent = String(hours);
+        document.getElementById('calc-salary-val').textContent = fmt(salary);
+        document.getElementById('calc-annual').textContent = fmt(annual);
+        document.getElementById('calc-monthly').textContent = fmt(annual / 12);
+        document.getElementById('calc-yearhours').textContent = fmt(yearHours);
+        document.getElementById('calc-saved').textContent = fmt(annual * 0.65);
+        [calcTeam, calcHours, calcSalary].forEach(paintTrack);
+      };
+      [calcTeam, calcHours, calcSalary].forEach((el) => el.addEventListener('input', recalc));
+      recalc();
     }
 
     // Consultation form

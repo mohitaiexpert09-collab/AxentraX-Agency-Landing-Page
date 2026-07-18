@@ -8,3 +8,8 @@ temporary screenshots/
 Thumbs.db
 .DS_Store
 *.log
+
+# Raw video source files (not referenced by the site; 0619.mp4 exceeds GitHub 100MB limit)
+0619.mp4
+Reduce COD RTO with AI Voice Agent.mp4
+Untitled design (4).mp4
